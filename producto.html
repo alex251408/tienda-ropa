@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producto | Matteo Salvatore</title>
+  <meta name="description" content="Matteo Salvatore - Detalle de producto.">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!--
+    Estilos exclusivos de la ficha de producto.
+    No se modificó css/styles.css: estas reglas viven solo aquí y
+    reutilizan las mismas variables de color/tipografía (--color-*,
+    --font-*, --radius-*, --shadow-*, --ease) ya definidas en ese
+    archivo, para mantener idéntica identidad visual.
+  -->
+  <style>
+    .product-page {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 1.6rem 1.1rem 4rem;
+    }
+
+    .breadcrumb {
+      font-size: 0.82rem;
+      color: var(--color-ink-soft);
+      margin-bottom: 1.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .breadcrumb a { color: var(--color-ink-soft); transition: color 0.2s var(--ease); }
+    .breadcrumb a:hover { color: var(--color-primary); }
+    .breadcrumb span[aria-hidden] { color: var(--color-border); }
+    #breadcrumbNombre { color: var(--color-ink); font-weight: 600; }
+
+    .product-status-message {
+      padding: 4rem 1rem;
+      text-align: center;
+      color: var(--color-ink-soft);
+      font-size: 0.95rem;
+    }
+
+    /* ---------- Ficha principal ---------- */
+    .product-hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+
+   .product-media-frame {
+      position: relative;
+      max-width: 420px;
+      margin: 0 auto;
+      aspect-ratio: 4 / 5;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-2);
+      border-radius: var(--radius-l);
+      padding: 0; /* <-- Quitamos el padding para que la foto toque los bordes del marco */
+      box-shadow: var(--shadow-s);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden; /* Esto oculta cualquier excedente de la foto */
+    }
+    .product-media-frame img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important; /* Fuerza a que cubra absolutamente todo el espacio */
+      border-radius: 0; /* Si prefieres esquinas redondeadas en la tarjeta, puedes mantener var(--radius-m) */
+    }
+    .product-thumbs {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 0.9rem auto 0;
+      max-width: 420px;
+    }
+    .product-thumb {
+      width: 64px;
+      height: 80px;
+      padding: 0;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-s, 8px);
+      overflow: hidden;
+      background: var(--color-surface);
+      cursor: pointer;
+      transition: border-color 0.2s var(--ease);
+    }
+    .product-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .product-thumb.is-selected { border-color: var(--color-primary); }
+    .badge-oferta {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 2;
+      background: var(--color-coral);
+      color: #FFF9F5;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.32rem 0.75rem;
+      border-radius: var(--radius-pill);
+    }
+
+    .product-hero-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .product-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-coral);
+      text-transform: capitalize;
+    }
+    .product-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      color: var(--color-ink);
+      line-height: 1.15;
+    }
+    .product-price-block {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .product-price-main {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.85rem;
+      color: var(--color-gold);
+    }
+    .product-price-strike {
+      font-size: 1rem;
+      color: var(--color-ink-soft);
+      text-decoration: line-through;
+    }
+    .product-lead {
+      color: var(--color-ink-soft);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      max-width: 34rem;
+    }
+
+    .product-selector { margin-top: 0.3rem; }
+    .selector-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--color-ink);
+      margin-bottom: 0.6rem;
+    }
+    .chip-group { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+    .chip {
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--color-border);
+      background: var(--color-surface);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-ink-soft);
+      cursor: pointer;
+      transition: border-color 0.2s var(--ease), color 0.2s var(--ease), background 0.2s var(--ease);
+    }
+    .chip:hover { border-color: var(--color-primary-2); color: var(--color-primary); }
+    .chip.is-agotado { text-decoration: line-through; opacity: 0.55; }
+    .chip.is-selected {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #FBF7F2;
+    }
+
+    .availability {
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .availability::before {
+      content: "";
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+    .availability.is-disponible { color: var(--color-whatsapp); }
+    .availability.is-agotado { color: var(--color-coral-2); }
+
+    .product-hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+    .buy-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 1.6rem;
+      border-radius: var(--radius-pill);
+      background: var(--color-coral);
+      color: #FFF9F5;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      box-shadow: var(--shadow-m);
+      transition: background 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .buy-button:hover { background: var(--color-coral-2); transform: translateY(-2px); box-shadow: var(--shadow-l); }
+    .buy-button[aria-disabled="true"] {
+      background: var(--color-border);
+      color: var(--color-ink-soft);
+      box-shadow: none;
+      pointer-events: none;
+    }
+
+    .whatsapp-inline-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.85rem 1.4rem;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--color-whatsapp);
+      color: var(--color-whatsapp-2);
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: background 0.2s var(--ease), color 0.2s var(--ease);
+    }
+    .whatsapp-inline-link:hover { background: var(--color-whatsapp); color: #fff; }
+
+    /* ---------- Descripción del producto ---------- */
+    .product-description-section {
+      border-top: 1px solid var(--color-border-2);
+      padding-top: 2.5rem;
+    }
+    .description-grid {
+      display: grid;
+      gap: 2rem;
+      margin-top: 1.3rem;
+    }
+    .description-text {
+      color: var(--color-ink-soft);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+    .specs-list {
+      display: grid;
+      gap: 0.9rem;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-2);
+      border-radius: var(--radius-m);
+      padding: 1.3rem 1.4rem;
+      align-content: start;
+    }
+    .specs-list > div {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.85rem;
+      border-bottom: 1px solid var(--color-border-2);
+      padding-bottom: 0.7rem;
+    }
+    .specs-list > div:last-child { border-bottom: none; padding-bottom: 0; }
+    .specs-list dt { color: var(--color-ink-soft); font-weight: 600; }
+    .specs-list dd { margin: 0; font-weight: 700; color: var(--color-ink); text-align: right; }
+
+    @media (min-width: 700px) {
+      .product-page { padding-left: 1.6rem; padding-right: 1.6rem; }
+      .product-media-frame { max-width: 480px; }
+    }
+
+    @media (min-width: 1024px) {
+      .product-page { padding-left: 2rem; padding-right: 2rem; }
+      .product-hero {
+        grid-template-columns: 440px 1fr;
+        gap: 3.5rem;
+        align-items: start;
+      }
+      .product-media-frame { max-width: 100%; position: sticky; top: 6.5rem; }
+      .product-hero-actions { flex-direction: row; }
+      .buy-button { flex: 1; }
+      .description-grid { grid-template-columns: 1.6fr 1fr; align-items: start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== HEADER (igual que index.html) ===================== -->
+  <header class="site-header">
+    <div class="header-top">
+      <a href="index.html" class="logo" aria-label="Matteo Salvatore - Inicio">
+        <img src="img/logo.png" alt="Matteo Salvatore" class="logo-img" width="666" height="81">
+      </a>
+
+      <form class="search-form" role="search" action="productos.html" method="get">
+        <input
+          type="search"
+          name="buscar"
+          class="search-input"
+          placeholder="Buscar polos, pantalones, accesorios..."
+          aria-label="Buscar productos"
+        >
+        <button type="submit" class="search-button" aria-label="Buscar">
+          🔍
+        </button>
+      </form>
+
+      <div class="header-actions">
+        <a href="#" class="icon-link" aria-label="Favoritos">♡</a>
+        <a href="#" class="icon-link" aria-label="Carrito de compras">🛒</a>
+        <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Todos los productos</a></li>
+        <li><a href="productos.html?categoria=hombre">Hombre</a></li>
+       
+        <li><a href="productos.html?categoria=ofertas">Ofertas</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="product-page">
+
+      <!-- Migas de pan -->
+      <nav class="breadcrumb" aria-label="Ruta de navegación">
+        <a href="index.html">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <a href="productos.html">Productos</a>
+        <span aria-hidden="true">/</span>
+        <span id="breadcrumbNombre">Detalle</span>
+      </nav>
+
+      <!-- Estado de carga / error -->
+      <p id="productoEstadoMensaje" class="product-status-message">Cargando producto...</p>
+
+      <!-- ===================== FICHA PRINCIPAL ===================== -->
+      <section class="product-hero" id="productoDetalle" hidden>
+
+        <!-- Imagen -->
+        <div class="product-hero-media">
+          <div class="product-media-frame">
+            <span id="productoBadgeOferta" class="badge-oferta" hidden>Oferta</span>
+            <img id="productoImagen" src="" alt="">
+          </div>
+          <div id="productoMiniaturas" class="product-thumbs" hidden></div>
+        </div>
+
+        <!-- Información -->
+        <div class="product-hero-info">
+          <p id="productoCategoria" class="product-eyebrow"></p>
+          <h1 id="productoNombre" class="product-title"></h1>
+
+          <div class="product-price-block">
+            <span id="productoPrecio" class="product-price-main"></span>
+            <span id="productoPrecioAnterior" class="product-price-strike" hidden></span>
+          </div>
+
+          <p id="productoDescripcionCorta" class="product-lead"></p>
+
+          <div class="product-selector" id="grupoColores" hidden>
+            <h2 class="selector-label">Color</h2>
+            <div id="productoColores" class="chip-group"></div>
+          </div>
+
+          <div class="product-selector" id="grupoTallas" hidden>
+            <h2 class="selector-label">Talla</h2>
+            <div id="productoTallas" class="chip-group"></div>
+          </div>
+
+          <p id="productoDisponibilidad" class="availability"></p>
+
+          <div class="product-hero-actions">
+            <button id="botonComprar" type="button" class="buy-button">Agregar 🛒</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== DESCRIPCIÓN DETALLADA ===================== -->
+      <section class="product-description-section" id="descripcionSection" hidden>
+        <h2 class="section-title">Descripción del producto</h2>
+        <div class="description-grid">
+          <p id="productoDescripcionLarga" class="description-text"></p>
+          <dl class="specs-list">
+            <div><dt>SKU</dt><dd id="specSku"></dd></div>
+            <div><dt>Categoría</dt><dd id="specCategoria"></dd></div>
+            <div><dt>Tallas</dt><dd id="specTallas"></dd></div>
+            <div><dt>Colores</dt><dd id="specColores"></dd></div>
+          </dl>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+<!-- ===================== BOTÓN FLOTANTE DE WHATSAPP ===================== -->
+<a
+  href="https://wa.me/51994319421?text=Hola%2C%20quiero%20más%20información%20sobre%20sus%20productos"
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Escríbenos por WhatsApp"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
+    aria-hidden="true"
+  >
+    <!-- Círculo verde -->
+    <circle cx="16" cy="16" r="16" fill="#25D366"/>
+
+    <!-- Símbolo blanco ampliado -->
+    <g transform="translate(-4.8 -4.8) scale(1.30)">
+      <path
+        fill="#FFFFFF"
+        d="M16 6.2a9.7 9.7 0 0 0-8.3 14.7L6.4 25.6l4.9-1.3A9.7 9.7 0 1 0 16 6.2Zm0 17.5a7.8 7.8 0 0 1-4-.9l-.3-.2-2.9.8.8-2.8-.2-.3a7.8 7.8 0 1 1 6.6 3.4Zm4.3-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8.9-.1.2-.3.2-.5.1a6.4 6.4 0 0 1-1.9-1.2 7 7 0 0 1-1.3-1.6c-.1-.2 0-.3.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.1.9 2.2c.1.2 1.6 2.5 3.9 3.4.5.2.9.3 1.2.4.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.3-.2-.5-.3Z"
+      />
+    </svg>
+  </svg>
+</a>
+  
+  <!-- ===================== FOOTER (igual que index.html) ===================== -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <a href="index.html" class="logo" aria-label="Matteo Salvatore - Inicio">
+          <img src="img/logo-blanco.png" alt="Matteo Salvatore" class="logo-img logo-img-footer" width="666" height="81">
+        </a>
+        <p class="footer-text">Ropa con estilo, calidad y buen precio.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Enlaces</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Categorías</h4>
+        <ul class="footer-links">
+          <li><a href="productos.html?categoria=hombre">Hombre</a></li>
+          <li><a href="productos.html?categoria=mujer">Mujer</a></li>
+          <li><a href="productos.html?categoria=ofertas">Ofertas</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Contáctanos</h4>
+        <ul class="footer-links">
+          <li><a href="#" id="footerWhatsappLink" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+          <li><a href="mailto:contacto@modafashion.com">contacto@modafashion.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Matteo Salvatore. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <!-- =========================================================
+       Script propio de esta página: lee data/productos.json,
+       busca el producto según ?id= en la URL y lo muestra.
+       No se modificó productos.js, productos.json ni ningún otro
+       archivo: toda la lógica vive aquí, autocontenida.
+       ========================================================= -->
+  <script>
+    (function () {
+      "use strict";
+
+      // -----------------------------------------------------------
+      // ⚠️ CONFIGURACIÓN PENDIENTE:
+      // Reemplaza el valor de abajo por tu número real de WhatsApp
+      // en formato internacional, SIN "+" ni espacios.
+      // Ejemplo: "51987654321"
+      // -----------------------------------------------------------
+      const NUMERO_WHATSAPP = "51994319421";
+
+      const RUTA_JSON = "data/productos.json";
+
+      let tallaSeleccionada = null;
+      let colorSeleccionado = null;
+      let productoActual = null;
+
+      /** Ordena tallas: XS, S, M, L, XL, XXL... y las numéricas (28, 30, 32...) de menor a mayor. */
+      function ordenarTallas(lista) {
+        const orden = ["XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL"];
+        const clave = (t) => {
+          const v = String(t).trim().toUpperCase();
+          const i = orden.indexOf(v);
+          if (i !== -1) return [0, i];
+          const n = parseFloat(v);
+          return Number.isNaN(n) ? [2, 0] : [1, n];
+        };
+        return lista.slice().sort((a, b) => {
+          const x = clave(a), y = clave(b);
+          return x[0] - y[0] || x[1] - y[1];
+        });
+      }
+
+      function formatearPrecio(valor) {
+        const numero = Number(valor);
+        if (Number.isNaN(numero)) return "S/ 0.00";
+        return "S/ " + numero.toLocaleString("es-PE", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+      }
+
+      function construirEnlaceWhatsapp(mensaje) {
+        return "https://wa.me/" + encodeURIComponent(NUMERO_WHATSAPP) +
+          "?text=" + encodeURIComponent(mensaje);
+      }
+
+      function obtenerIdDesdeUrl() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get("id");
+      }
+
+      function mostrarMensajeEstado(texto) {
+        document.getElementById("productoEstadoMensaje").textContent = texto;
+        document.getElementById("productoEstadoMensaje").hidden = false;
+        document.getElementById("productoDetalle").hidden = true;
+        document.getElementById("descripcionSection").hidden = true;
+      }
+
+      /**
+       * Crea un grupo de chips seleccionables (talla o color).
+       * Solo controla el estado visual "seleccionado"; no hay carrito.
+       */
+      function crearChips(contenedor, valores, alSeleccionar) {
+        contenedor.innerHTML = "";
+        valores.forEach((valor, indice) => {
+          const chip = document.createElement("button");
+          chip.type = "button";
+          chip.className = "chip";
+          chip.textContent = valor;
+          if (indice === 0) {
+            chip.classList.add("is-selected");
+            alSeleccionar(valor);
+          }
+          chip.addEventListener("click", () => {
+            contenedor.querySelectorAll(".chip").forEach((c) => c.classList.remove("is-selected"));
+            chip.classList.add("is-selected");
+            alSeleccionar(valor);
+            actualizarEnlaceCompra();
+          });
+          contenedor.appendChild(chip);
+        });
+      }
+
+      function norm(t) {
+        return String(t || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+      }
+
+      function aLista(v) {
+        if (!v) return [];
+        return (Array.isArray(v) ? v : [v]).filter(Boolean);
+      }
+
+      /** Fotos asociadas a un color (imagenesPorColor), o [] si no hay. */
+      function fotosDelColor(color) {
+        const mapa = (productoActual && productoActual.imagenesPorColor) || {};
+        const clave = Object.keys(mapa).find((k) => norm(k) === norm(color));
+        if (clave) return aLista(mapa[clave]);
+        // Sin imagenesPorColor: busca fotos cuyo nombre de archivo contenga el color
+        // (ej. "polo-vino.jpg" para el color "Vino")
+        const limpio = (t) => norm(t).replace(/[^a-z0-9]/g, "");
+        const c = limpio(color);
+        if (!c) return [];
+        const todas = [productoActual.imagenPrincipal].concat(aLista(productoActual.imagenesAdicionales)).filter(Boolean);
+        return todas.filter((r) => limpio(r.split("/").pop().replace(/\.[^.]+$/, "")).includes(c));
+      }
+
+      function ponerImagen(ruta) {
+        const img = document.getElementById("productoImagen");
+        const respaldo = productoActual.imagenPrincipal || "";
+        img.onerror = function () {
+          img.onerror = null;
+          if (respaldo && img.getAttribute("src") !== respaldo) img.src = respaldo;
+        };
+        img.src = ruta;
+      }
+
+      function dibujarMiniaturas(fotos, seleccionada) {
+        const cont = document.getElementById("productoMiniaturas");
+        cont.innerHTML = "";
+        if (fotos.length < 2) { cont.hidden = true; return; }
+        fotos.forEach((ruta) => {
+          const b = document.createElement("button");
+          b.type = "button";
+          b.className = "product-thumb" + (ruta === seleccionada ? " is-selected" : "");
+          b.setAttribute("aria-label", "Ver foto");
+          const i = document.createElement("img");
+          i.src = ruta; i.alt = "";
+          i.addEventListener("error", () => b.remove(), { once: true });
+          b.appendChild(i);
+          b.addEventListener("click", () => {
+            ponerImagen(ruta);
+            cont.querySelectorAll(".product-thumb").forEach((x) => x.classList.remove("is-selected"));
+            b.classList.add("is-selected");
+          });
+          cont.appendChild(b);
+        });
+        cont.hidden = false;
+      }
+
+      /** Al elegir un color: cambia la foto grande y las miniaturas. */
+      function mostrarFotosDelColor(color) {
+        if (!productoActual) return;
+        const generales = [productoActual.imagenPrincipal].concat(aLista(productoActual.imagenesAdicionales)).filter(Boolean);
+        const delColor = fotosDelColor(color);
+        const fotos = delColor.length ? delColor : generales;
+        if (!fotos.length) return;
+        ponerImagen(fotos[0]);
+        dibujarMiniaturas(fotos, fotos[0]);
+      }
+
+      function buscarClave(obj, nombre) {
+        return Object.keys(obj).find((k) => norm(k) === norm(nombre));
+      }
+
+      /**
+       * Stock de una combinación color + talla.
+       * stockPorColor puede ser: "Rojo": 5  (todo el color)  o
+       * "Rojo": {"S": 2, "M": 5}  (por talla; la talla que no aparece = 0).
+       * Si el color no está en stockPorColor, se usa el stock general.
+       */
+      function stockDe(color, talla) {
+        const mapa = (productoActual && productoActual.stockPorColor) || null;
+        if (mapa && color) {
+          const clave = buscarClave(mapa, color);
+          if (clave !== undefined) {
+            const v = mapa[clave];
+            if (v && typeof v === "object") {
+              if (!talla) return Object.values(v).reduce((t, n) => t + (Number(n) || 0), 0);
+              const ct = buscarClave(v, talla);
+              return ct === undefined ? 0 : (Number(v[ct]) || 0);
+            }
+            return Number(v) || 0;
+          }
+        }
+        return Number(productoActual && productoActual.stock) || 0;
+      }
+
+      /** Marca tallas agotadas del color elegido y cambia a una con stock si hace falta. */
+      function refrescarTallas() {
+        const chips = Array.from(document.querySelectorAll("#productoTallas .chip"));
+        if (!chips.length) return;
+        chips.forEach((c) => c.classList.toggle("is-agotado", stockDe(colorSeleccionado, c.textContent) <= 0));
+        if (stockDe(colorSeleccionado, tallaSeleccionada) <= 0) {
+          const libre = chips.find((c) => !c.classList.contains("is-agotado"));
+          if (libre) {
+            chips.forEach((c) => c.classList.remove("is-selected"));
+            libre.classList.add("is-selected");
+            tallaSeleccionada = libre.textContent;
+          }
+        }
+      }
+
+      function actualizarDisponibilidad() {
+        if (!productoActual) return;
+        const n = stockDe(colorSeleccionado, tallaSeleccionada);
+        const hayStock = n > 0;
+        const el = document.getElementById("productoDisponibilidad");
+        el.textContent = hayStock
+          ? (n <= 5 ? "Últimas " + n + " unidades" : "Disponible")
+          : (colorSeleccionado || tallaSeleccionada ? "Esta combinación está agotada" : "Agotado temporalmente");
+        el.classList.toggle("is-disponible", hayStock);
+        el.classList.toggle("is-agotado", !hayStock);
+        const boton = document.getElementById("botonComprar");
+        if (hayStock) boton.removeAttribute("aria-disabled"); else boton.setAttribute("aria-disabled", "true");
+        boton.textContent = hayStock ? "Agregar 🛒" : "Producto agotado";
+      }
+
+      function actualizarEnlaceCompra() { /* el botón ahora agrega al carrito */ }
+
+      function agregarAlCarrito() {
+        if (!productoActual || !window.Carrito) return;
+        const disponible = stockDe(colorSeleccionado, tallaSeleccionada);
+        if (disponible <= 0) return;
+        const ok = window.Carrito.agregar({
+          id: productoActual.id,
+          nombre: productoActual.nombre,
+          precio: productoActual.precio,
+          color: colorSeleccionado,
+          talla: tallaSeleccionada,
+          imagen: document.getElementById("productoImagen").getAttribute("src")
+        }, disponible);
+        window.Carrito.aviso(ok
+          ? "Agregado al carrito 🛒"
+          : "Ya agregaste todas las unidades disponibles");
+      }
+
+      function mostrarProducto(producto) {
+        productoActual = producto;
+
+        const {
+          nombre = "Producto sin nombre",
+          categoria = "",
+          precio = 0,
+          precioAnterior = null,
+          descripcion = "",
+          tallasDisponibles = [],
+          coloresDisponibles = [],
+          imagenPrincipal = "",
+          stock = 0,
+          sku = ""
+        } = producto;
+
+        document.title = nombre + " | Matteo Salvatore";
+        document.getElementById("breadcrumbNombre").textContent = nombre;
+
+        document.getElementById("productoImagen").src = imagenPrincipal;
+        document.getElementById("productoImagen").alt = nombre;
+
+        const categoriaEl = document.getElementById("productoCategoria");
+        categoriaEl.textContent = categoria;
+        categoriaEl.hidden = !categoria;
+
+        document.getElementById("productoNombre").textContent = nombre;
+        document.getElementById("productoPrecio").textContent = formatearPrecio(precio);
+        document.getElementById("productoDescripcionCorta").textContent = descripcion;
+        document.getElementById("productoDescripcionLarga").textContent =
+          descripcion || "Este producto todavía no tiene una descripción detallada.";
+
+        // Precio anterior / etiqueta de oferta
+        const precioAnteriorEl = document.getElementById("productoPrecioAnterior");
+        const badgeOferta = document.getElementById("productoBadgeOferta");
+        const hayOferta = precioAnterior && Number(precioAnterior) > Number(precio);
+        precioAnteriorEl.hidden = !hayOferta;
+        badgeOferta.hidden = !hayOferta;
+        if (hayOferta) {
+          precioAnteriorEl.textContent = formatearPrecio(precioAnterior);
+        }
+
+        // Selector de color
+        const grupoColores = document.getElementById("grupoColores");
+        if (Array.isArray(coloresDisponibles) && coloresDisponibles.length > 0) {
+          crearChips(document.getElementById("productoColores"), coloresDisponibles, (valor) => {
+            colorSeleccionado = valor;
+            mostrarFotosDelColor(valor);
+            refrescarTallas();
+            actualizarDisponibilidad();
+          });
+          document.querySelectorAll("#productoColores .chip").forEach((chip) => {
+            if (stockDe(chip.textContent, null) <= 0) chip.classList.add("is-agotado");
+          });
+          grupoColores.hidden = false;
+        }
+
+        if (!(Array.isArray(coloresDisponibles) && coloresDisponibles.length > 0)) {
+          mostrarFotosDelColor(null);
+        }
+
+        // Selector de talla
+        const grupoTallas = document.getElementById("grupoTallas");
+        if (Array.isArray(tallasDisponibles) && tallasDisponibles.length > 0) {
+          crearChips(document.getElementById("productoTallas"), ordenarTallas(tallasDisponibles), (valor) => {
+            tallaSeleccionada = valor;
+            actualizarDisponibilidad();
+          });
+          refrescarTallas();
+          grupoTallas.hidden = false;
+        }
+
+        // Ficha de especificaciones
+        document.getElementById("specSku").textContent = sku || "—";
+        document.getElementById("specCategoria").textContent = categoria || "—";
+        document.getElementById("specTallas").textContent =
+          tallasDisponibles.length ? ordenarTallas(tallasDisponibles).join(", ") : "—";
+        document.getElementById("specColores").textContent =
+          coloresDisponibles.length ? coloresDisponibles.join(", ") : "—";
+
+        actualizarDisponibilidad();
+        actualizarEnlaceCompra();
+
+        // Mostrar contenido
+        document.getElementById("productoEstadoMensaje").hidden = true;
+        document.getElementById("productoDetalle").hidden = false;
+        document.getElementById("descripcionSection").hidden = false;
+      }
+
+      function configurarEnlacesGenericosWhatsapp() {
+        const mensajeGeneral = "Hola, quiero más información sobre sus productos";
+        const enlace = construirEnlaceWhatsapp(mensajeGeneral);
+
+       
+        document.getElementById("footerWhatsappLink").href = enlace;
+      }
+
+      async function iniciar() {
+        configurarEnlacesGenericosWhatsapp();
+
+        const id = obtenerIdDesdeUrl();
+        if (!id) {
+          mostrarMensajeEstado("No se especificó ningún producto. Vuelve a la tienda y elige uno.");
+          return;
+        }
+
+        try {
+          const respuesta = await fetch(RUTA_JSON, { cache: "no-store" });
+          if (!respuesta.ok) {
+            throw new Error("No se pudo obtener productos.json (HTTP " + respuesta.status + ")");
+          }
+
+          const datos = await respuesta.json();
+          if (!datos || !Array.isArray(datos.productos)) {
+            throw new Error("El formato de productos.json no es válido: falta la clave 'productos'.");
+          }
+
+          const producto = datos.productos.find((p) => String(p.id) === String(id));
+
+          if (!producto) {
+            mostrarMensajeEstado("No encontramos el producto que buscas.");
+            return;
+          }
+
+          if (window.Inventario) {
+            const inv = await window.Inventario.cargar(producto);
+            if (inv) producto.stockPorColor = inv;
+          }
+          mostrarProducto(producto);
+
+        } catch (error) {
+          console.error("[producto.html] Error al cargar el producto:", error);
+          mostrarMensajeEstado(
+            "No se pudo cargar la información del producto en este momento. Por favor, actualiza la página o inténtalo más tarde."
+          );
+        }
+      }
+
+      document.getElementById("botonComprar").addEventListener("click", agregarAlCarrito);
+      document.addEventListener("DOMContentLoaded", iniciar);
+    })();
+  </script>
+
+</body>
+</html>

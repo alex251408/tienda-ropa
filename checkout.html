@@ -1,0 +1,326 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Finaliza tu compra en Moda Fashion.">
+  <title>Finalizar compra | Moda Fashion</title>
+
+  <!-- Estilos propios de la página de compra -->
+  <link rel="stylesheet" href="checkout.css">
+</head>
+
+<body class="checkout-page">
+
+  <header class="checkout-header">
+    <a href="index.html" class="checkout-logo">
+      <img src="img/logo.png" alt="Moda Fashion">
+    </a>
+
+    <div class="checkout-header-title">
+      <span>FINALIZAR COMPRA</span>
+      <small>Compra segura y sencilla</small>
+    </div>
+
+    <a href="productos.html" class="back-shopping">
+      Seguir comprando
+    </a>
+  </header>
+
+  <main class="checkout-container">
+
+    <div class="checkout-heading">
+      <h1>Completa tu pedido</h1>
+      <p>Ingresa tus datos para coordinar la entrega de tu compra.</p>
+    </div>
+
+    <form id="checkoutForm">
+
+      <div class="checkout-layout">
+
+        <!-- COLUMNA IZQUIERDA -->
+        <div class="checkout-main">
+
+          <!-- RESUMEN DEL PEDIDO -->
+          <section class="checkout-card">
+            <div class="section-heading">
+              <span class="section-number">01</span>
+              <div>
+                <h2>Resumen de tu pedido</h2>
+                <p>Revisa los productos que seleccionaste.</p>
+              </div>
+            </div>
+
+            <div id="checkoutProducts">
+              <!-- Los productos se cargarán desde el carrito -->
+            </div>
+
+            <div id="emptyCart" hidden>
+              Tu carrito está vacío.
+              <a href="productos.html">Ver productos</a>
+            </div>
+          </section>
+
+          <!-- DATOS DEL CLIENTE -->
+          <section class="checkout-card">
+
+            <div class="section-heading">
+              <span class="section-number">02</span>
+              <div>
+                <h2>Datos del comprador</h2>
+                <p>Necesitamos tus datos para procesar el pedido.</p>
+              </div>
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-group full-width">
+                <label for="nombre">Nombre completo *</label>
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  placeholder="Ingresa tu nombre y apellido"
+                  autocomplete="name"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="telefono">Teléfono celular *</label>
+                <input
+                  type="tel"
+                  id="telefono"
+                  name="telefono"
+                  placeholder="999 999 999"
+                  autocomplete="tel"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="correo">Correo electrónico</label>
+                <input
+                  type="email"
+                  id="correo"
+                  name="correo"
+                  placeholder="correo@ejemplo.com"
+                  autocomplete="email"
+                >
+              </div>
+
+            </div>
+          </section>
+
+          <!-- DIRECCIÓN DE ENTREGA -->
+          <section class="checkout-card">
+
+            <div class="section-heading">
+              <span class="section-number">03</span>
+              <div>
+                <h2>Dirección de entrega</h2>
+                <p>Indica dónde deseas recibir tu pedido.</p>
+              </div>
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-group full-width">
+                <label for="departamento">Departamento *</label>
+                <select id="departamento" name="departamento" required>
+                  <option value="">Selecciona un departamento</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="provincia">Provincia *</label>
+                <select id="provincia" name="provincia" required disabled>
+                  <option value="">Selecciona una provincia</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="distrito">Distrito *</label>
+                <select id="distrito" name="distrito" required disabled>
+                  <option value="">Selecciona un distrito</option>
+                </select>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="direccion">Dirección exacta *</label>
+                <input
+                  type="text"
+                  id="direccion"
+                  name="direccion"
+                  placeholder="Avenida, calle, jirón, número, interior..."
+                  autocomplete="street-address"
+                  required
+                >
+              </div>
+
+              <div class="form-group full-width">
+                <label for="referencia">Referencia de entrega</label>
+                <textarea
+                  id="referencia"
+                  name="referencia"
+                  rows="3"
+                  placeholder="Ejemplo: frente al parque, casa de dos pisos..."
+                ></textarea>
+              </div>
+
+            </div>
+
+            <div class="delivery-notice">
+              <strong>Entrega a domicilio</strong>
+              <p>El costo del delivery se calculará según la ubicación seleccionada.</p>
+            </div>
+
+          </section>
+
+          <!-- MÉTODO DE PAGO -->
+          <section class="checkout-card">
+
+            <div class="section-heading">
+              <span class="section-number">04</span>
+              <div>
+                <h2>Método de pago</h2>
+                <p>Selecciona cómo deseas realizar tu pago.</p>
+              </div>
+            </div>
+
+            <div class="payment-options">
+
+              <label class="payment-option">
+                <input
+                  type="radio"
+                  name="metodoPago"
+                  value="yape"
+                  required
+                >
+
+                <span class="payment-logo yape-logo">
+                  <img src="img/pagos/yape-log.jpg" alt="Yape">
+                </span>
+
+                <span class="payment-description">
+                  <strong>Yape</strong>
+                  <small>Pago mediante aplicativo</small>
+                </span>
+              </label>
+
+              <label class="payment-option">
+                <input
+                  type="radio"
+                  name="metodoPago"
+                  value="plin"
+                >
+
+                <span class="payment-logo plin-logo">
+                  <img src="img/pagos/plim-log.jpg" alt="Plin">
+                </span>
+
+                <span class="payment-description">
+                  <strong>Plin</strong>
+                  <small>Pago mediante aplicativo</small>
+                </span>
+              </label>
+
+              <label class="payment-option">
+                <input
+                  type="radio"
+                  name="metodoPago"
+                  value="transferencia"
+                >
+
+                <span class="payment-logo bank-logo">
+                  <img src="img/pagos/bcp-log.jpg" alt="BCP">
+                </span>
+
+                <span class="payment-description">
+                  <strong>Transferencia BCP</strong>
+                  <small>Depósito o transferencia bancaria</small>
+                </span>
+              </label>
+
+            </div>
+
+            <!-- COMPROBANTE -->
+            <div class="form-group receipt-group">
+              <label for="comprobante">Comprobante de pago</label>
+              <input
+                type="file"
+                id="comprobante"
+                name="comprobante"
+                accept="image/*,.pdf"
+              >
+              <small>Podrás adjuntar una imagen o PDF de tu comprobante.</small>
+            </div>
+
+          </section>
+
+        </div>
+
+        <!-- COLUMNA DERECHA -->
+        <aside class="checkout-sidebar">
+
+          <!-- RESUMEN DE COMPRA -->
+          <section class="checkout-card order-summary">
+
+            <h2>Resumen de compra</h2>
+
+            <div class="summary-line">
+              <span>Productos</span>
+              <strong id="subtotal">S/ 0.00</strong>
+            </div>
+
+            <div class="summary-line">
+              <span>Delivery</span>
+              <strong id="deliveryCost">Por calcular</strong>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-total">
+              <span>Total a pagar</span>
+              <strong id="totalCompra">S/ 0.00</strong>
+            </div>
+
+            <button type="submit" id="btnRealizarPedido" class="checkout-button">
+              REALIZAR PEDIDO
+            </button>
+
+            <p class="checkout-terms">
+              Al continuar, confirmas que los datos proporcionados
+              son correctos.
+            </p>
+
+          </section>
+
+          <!-- INSTRUCCIONES DEL MÉTODO DE PAGO -->
+          <section
+            id="paymentDetails"
+            class="checkout-card payment-details"
+            hidden
+          >
+            <!-- Aquí aparecerán los datos según el medio de pago -->
+          </section>
+
+        </aside>
+
+      </div>
+
+    </form>
+
+  </main>
+
+  <footer class="checkout-footer">
+    <p>© 2026 Moda Fashion. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- JavaScript de la página de compra -->
+  <script src="checkout.js"></script>
+
+</body>
+</html>
+```

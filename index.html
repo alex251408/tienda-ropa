@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moda & Fashion | Tienda de Ropa Online</title>
+  <meta name="description" content="Moda & Fashion - Encuentra las mejores prendas de vestir al mejor precio.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="page-home">
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header">
+  <div class="header-top">
+    <a href="index.html" class="logo" aria-label="Moda & Fashion - Inicio">
+      <img src="img/logo.png" alt="Moda & Fashion" class="logo-img">
+    </a>
+
+    <!-- Buscador -->
+    <form class="search-form" role="search" action="productos.html" method="get">
+      <input
+        type="search"
+        name="buscar"
+        class="search-input"
+        placeholder="Buscar polos, pantalones, accesorios..."
+        aria-label="Buscar productos"
+      >
+      <button type="submit" class="search-button" aria-label="Buscar">
+        🔍
+      </button>
+    </form>
+
+    <!-- Acciones rápidas -->
+    <div class="header-actions">
+      <a href="#" class="icon-link" aria-label="Favoritos">♡</a>
+      <a href="#" class="icon-link" aria-label="Carrito de compras">🛒</a>
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+    <!-- ===================== NAV (pestañas) ===================== -->
+    <nav class="main-nav" aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li><a href="index.html" class="active">Todo</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="productos.html?categoria=hombre">Hombre</a></li>
+        
+        <li><a href="productos.html?categoria=ofertas">Ofertas</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===================== VENTAJAS (franja) ===================== -->
+    <section class="perks-bar" aria-label="Ventajas de comprar en la tienda">
+      <div class="perk">
+        <span class="perk-check" aria-hidden="true">✓</span>
+        <div>
+          <strong>Pago contraentrega</strong>
+          <small>Consulta disponibilidad</small>
+        </div>
+      </div>
+      <div class="perk">
+        <span class="perk-check" aria-hidden="true">✓</span>
+        <div>
+          <strong>Atención por WhatsApp</strong>
+          <small>Compra directa y rápida</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BANNER PRINCIPAL (carrusel) ===================== -->
+    <!--
+      Se desliza solo cada pocos segundos y también con el dedo o las flechas.
+
+      - La primera diapositiva lleva texto y las fotos con precio, que salen
+        solas de data/productos.json (primeros productos).
+      - Las demás son imágenes tuyas: guárdalas en img/banners/ con los nombres
+        banner-1.jpg, banner-2.jpg y banner-3.jpg. Si alguna no existe, esa
+        diapositiva simplemente no aparece.
+      - Para agregar más, copia una línea <a class="hero-slide hero-slide-img">
+        y cambia el nombre de la imagen (y el enlace si quieres otro destino).
+      - Tamaño recomendado: 1600 x 700 px, con lo importante en el centro.
+    -->
+    <section class="hero-carousel" id="heroCarousel" aria-roledescription="carrusel" aria-label="Novedades y promociones">
+      <div class="hero-track" id="heroTrack">
+
+        <!-- Diapositiva 1: texto + productos del JSON -->
+        <div class="hero-slide hero-banner">
+          <div class="hero-content">
+            <span class="hero-tag">#NuevaColección</span>
+            <h1 class="hero-title">Viste tu estilo</h1>
+            <p class="hero-subtitle">Define tu momento con prendas de calidad a precios justos.</p>
+            <a href="productos.html" class="btn btn-primary">Ver productos</a>
+          </div>
+          
+        </div>
+
+        <!-- Diapositivas de imagen (se quitan solas si la imagen no existe) -->
+        <a class="hero-slide hero-slide-img" href="productos.html">
+          <img src="img/banners/banner-1.jpg" alt="Promoción de Matteo Salvatore" onerror="this.parentElement.remove()">
+        </a>
+        <a class="hero-slide hero-slide-img" href="productos.html">
+          <img src="img/banners/banner-2.jpg" alt="Novedades de Matteo Salvatore" onerror="this.parentElement.remove()">
+        </a>
+        <a class="hero-slide hero-slide-img" href="productos.html?categoria=ofertas">
+          <img src="img/banners/banner-3.jpg" alt="Ofertas de Matteo Salvatore" onerror="this.parentElement.remove()">
+        </a>
+        <a class="hero-slide hero-slide-img" href="productos.html?categoria=ofertas">
+          <img src="img/banners/banner-4.jpg" alt="Ofertas de Matteo Salvatore" onerror="this.parentElement.remove()">
+        </a>
+        <a class="hero-slide hero-slide-img" href="productos.html?categoria=ofertas">
+          <img src="img/banners/banner-5.jpg" alt="Ofertas de Matteo Salvatore" onerror="this.parentElement.remove()">
+        </a>
+        <a class="hero-slide hero-slide-img" href="productos.html?categoria=ofertas">
+          <img src="img/banners/banner-6.jpg" alt="Ofertas de Matteo Salvatore" onerror="this.parentElement.remove()">
+        </a>
+
+      </div>
+
+      <!-- Flechas y puntos: los crea js/main.js solo cuando hay más de una diapositiva -->
+      <button type="button" class="hero-arrow hero-prev" aria-label="Imagen anterior" hidden>‹</button>
+      <button type="button" class="hero-arrow hero-next" aria-label="Imagen siguiente" hidden>›</button>
+      <div class="hero-dots" role="group" aria-label="Elegir imagen" hidden></div>
+    </section>
+
+    <!-- ===================== CATEGORÍAS ===================== -->
+    <!--
+      Cada círculo muestra un emoji. Si guardas una foto en
+      img/categorias/ con el nombre indicado (polos.jpg, pantalones.jpg...),
+      la foto reemplaza al emoji automáticamente.
+    -->
+    <section class="categories-section" id="categorias" aria-label="Categorías de ropa">
+      <h2 class="section-title">Elije tu categoría</h2>
+      <div class="categories-grid">
+        <a href="productos.html?categoria=polos" class="category-card">
+          <div class="category-image">
+            <span class="category-emoji" aria-hidden="true">👕</span>
+            <img src="img/categorias/polos.jpg" alt="" loading="lazy" onerror="this.remove()">
+          </div>
+          <span class="category-name">Polos</span>
+        </a>
+        <a href="productos.html?categoria=pantalones" class="category-card">
+          <div class="category-image">
+            <span class="category-emoji" aria-hidden="true">👖</span>
+            <img src="img/categorias/pantalones.jpg" alt="" loading="lazy" onerror="this.remove()">
+          </div>
+          <span class="category-name">Pantalones</span>
+        </a>
+                <a href="productos.html?categoria=conjuntos" class="category-card">
+          <div class="category-image">
+            <span class="category-emoji" aria-hidden="true">🎽</span>
+            <img src="img/categorias/conjuntos.jpg" alt="" loading="lazy" onerror="this.remove()">
+          </div>
+          <span class="category-name">Conjuntos</span>
+        </a>
+        <a href="productos.html?categoria=casacas" class="category-card">
+          <div class="category-image">
+            <span class="category-emoji" aria-hidden="true">🧥</span>
+            <img src="img/categorias/casacas.jpg" alt="" loading="lazy" onerror="this.remove()">
+          </div>
+          <span class="category-name">Casacas</span>
+        </a>
+        <a href="productos.html?categoria=Poleras" class="category-card">
+          <div class="category-image">
+            <span class="category-emoji" aria-hidden="true">🧢</span>
+            <img src="img/categorias/poleras.jpg" alt="" loading="lazy" onerror="this.remove()">
+          </div>
+          <span class="category-name">Poleras</span>
+        </a>
+        <a href="productos.html?categoria=zapatillas" class="category-card">
+          <div class="category-image">
+            <span class="category-emoji" aria-hidden="true">👟</span>
+            <img src="img/categorias/zapatillas.jpg" alt="" loading="lazy" onerror="this.remove()">
+          </div>
+          <span class="category-name">Zapatillas</span>
+        </a>
+        
+      </div>
+    </section>
+
+    <!-- ===================== PRODUCTOS DESTACADOS ===================== -->
+    <section class="featured-section" aria-label="Productos destacados">
+      <div class="section-header">
+        <h2 class="section-title">Productos destacados</h2>
+        <a href="productos.html" class="see-all-link">Ver todos →</a>
+      </div>
+
+      <!-- Las tarjetas se generan solas desde data/productos.json (js/productos.js) -->
+      <div class="products-grid" id="productosGrid">
+        <p class="products-empty-message">Cargando productos…</p>
+      </div>
+
+      <div class="section-cta">
+        <a href="productos.html" class="btn btn-secondary">Ver todos los productos</a>
+      </div>
+    </section>
+
+    <!-- ===================== BENEFICIOS ===================== -->
+    <section class="benefits-section" aria-label="Beneficios de comprar en la tienda">
+      <h2 class="section-title">¿Por qué comprar con nosotros?</h2>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="benefit-icon" aria-hidden="true">🚚</div>
+          <h3 class="benefit-title">Envío rápido</h3>
+          <p class="benefit-text">Recibe tu pedido en la puerta de tu casa en pocos días.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon" aria-hidden="true">💳</div>
+          <h3 class="benefit-title">Pago contraentrega</h3>
+          <p class="benefit-text">Paga cuando recibas tu producto, sin adelantos.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon" aria-hidden="true">✅</div>
+          <h3 class="benefit-title">Calidad garantizada</h3>
+          <p class="benefit-text">Prendas seleccionadas con los mejores materiales.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon" aria-hidden="true">💬</div>
+          <h3 class="benefit-title">Atención personalizada</h3>
+          <p class="benefit-text">Resolvemos tus dudas directamente por WhatsApp.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  
+<!-- ===================== BOTÓN FLOTANTE DE WHATSAPP ===================== -->
+
+<a
+  href="https://wa.me/51994319421?text=Hola%2C%20quiero%20más%20información%20sobre%20sus%20productos"
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Escríbenos por WhatsApp"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
+    aria-hidden="true"
+  >
+    <!-- Círculo verde -->
+    <circle cx="16" cy="16" r="16" fill="#25D366"/>
+
+    <!-- Símbolo blanco ampliado -->
+    <g transform="translate(-4.8 -4.8) scale(1.30)">
+      <path
+        fill="#FFFFFF"
+        d="M16 6.2a9.7 9.7 0 0 0-8.3 14.7L6.4 25.6l4.9-1.3A9.7 9.7 0 1 0 16 6.2Zm0 17.5a7.8 7.8 0 0 1-4-.9l-.3-.2-2.9.8.8-2.8-.2-.3a7.8 7.8 0 1 1 6.6 3.4Zm4.3-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8.9-.1.2-.3.2-.5.1a6.4 6.4 0 0 1-1.9-1.2 7 7 0 0 1-1.3-1.6c-.1-.2 0-.3.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.1.9 2.2c.1.2 1.6 2.5 3.9 3.4.5.2.9.3 1.2.4.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.3-.2-.5-.3Z"
+      />
+    </g>
+  </svg>
+</a>
+
+
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <a href="index.html" class="logo" aria-label="Matteo Salvatore - Inicio">
+          <img src="img/logo-blanco.png" alt="Matteo Salvatore" class="logo-img logo-img-footer" width="666" height="81">
+        </a>
+        <p class="footer-text">Ropa con estilo, calidad y buen precio.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Enlaces</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Categorías</h4>
+        <ul class="footer-links">
+          <li><a href="productos.html?categoria=hombre">Hombre</a></li>
+          <li><a href="productos.html?categoria=mujer">Mujer</a></li>
+          <li><a href="productos.html?categoria=ofertas">Ofertas</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Contáctanos</h4>
+        <ul class="footer-links">
+         <li><a href="https://wa.me/51994319421?text=Hola,%20quiero%20más%20información%20sobre%20sus%20productos" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+          <li><a href="mailto:contacto@modafashion.com">contacto@modafashion.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Matteo Salvatore. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ===================== BARRA INFERIOR (solo celular) ===================== -->
+  <nav class="bottom-nav" aria-label="Navegación rápida">
+    <a href="index.html" class="bottom-nav-item is-active">
+      <span class="bottom-nav-icon" aria-hidden="true">🏠</span>
+      <span>Inicio</span>
+    </a>
+    <a href="#categorias" class="bottom-nav-item">
+      <span class="bottom-nav-icon" aria-hidden="true">☰</span>
+      <span>Categorías</span>
+    </a>
+    <a href="productos.html?categoria=ofertas" class="bottom-nav-item">
+      <span class="bottom-nav-icon" aria-hidden="true">🏷️</span>
+      <span>Ofertas</span>
+    </a>
+    <a href="contacto.html" class="bottom-nav-item">
+      <span class="bottom-nav-icon" aria-hidden="true">📞</span>
+      <span>Contacto</span>
+    </a>
+  </nav>
+
+  <script src="js/main.js"></script>
+  <script src="js/productos.js"></script>
+</body>
+</html>

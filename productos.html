@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos | Matteo Salvatore</title>
+  <meta name="description" content="Matteo Salvatore - Catálogo de productos.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="page-catalog">
+
+  <!-- ===================== HEADER (igual que index.html) ===================== -->
+  <header class="site-header">
+    <div class="header-top">
+      <a href="index.html" class="logo" aria-label="Matteo Salvatore - Inicio">
+        <img src="img/logo.png" alt="Matteo Salvatore" class="logo-img" width="666" height="81">
+      </a>
+
+      <!-- Buscador -->
+      <form class="search-form" role="search" action="productos.html" method="get">
+        <input
+          type="search"
+          name="buscar"
+          class="search-input"
+          placeholder="Buscar polos, pantalones, accesorios..."
+          aria-label="Buscar productos"
+        >
+        <button type="submit" class="search-button" aria-label="Buscar">
+          🔍
+        </button>
+      </form>
+
+      <!-- Acciones rápidas -->
+      <div class="header-actions">
+        <a href="#" class="icon-link" aria-label="Favoritos">♡</a>
+        <a href="#" class="icon-link" aria-label="Carrito de compras">🛒</a>
+        <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ===================== NAV (pestañas) ===================== -->
+    <nav class="main-nav" aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li><a href="index.html">Todo</a></li>
+        <li><a href="productos.html" class="active">Productos</a></li>
+        <li><a href="productos.html?categoria=hombre">Hombre</a></li>
+      
+        <li><a href="productos.html?categoria=ofertas">Ofertas</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===================== ENCABEZADO DEL CATÁLOGO ===================== -->
+    <!-- El título y la cantidad cambian solos según la categoría (js/productos.js) -->
+    <section class="catalog-head" aria-label="Resumen del catálogo">
+      <nav class="breadcrumb" aria-label="Ruta de navegación">
+        <a href="index.html">Inicio</a>
+        <span aria-hidden="true">/</span>
+        <span>Productos</span>
+      </nav>
+      <div class="catalog-head-row">
+        <h1 class="catalog-title" id="catalogoTitulo">Todos los productos</h1>
+        <p class="catalog-count" id="catalogoConteo" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- Categorías: se crean solas a partir de data/productos.json -->
+    <nav class="catalog-filters" id="catalogoFiltros" aria-label="Filtrar por categoría"></nav>
+
+    <!-- ===================== PRODUCTOS ===================== -->
+    <section class="featured-section catalog-section" aria-label="Lista de productos">
+      <div class="products-grid" id="productosGrid" data-catalogo>
+        <p class="products-empty-message">Cargando productos…</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== BOTÓN FLOTANTE DE WHATSAPP ===================== -->
+ <a
+  href="https://wa.me/51994319421?text=Hola%2C%20quiero%20más%20información%20sobre%20sus%20productos"
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Escríbenos por WhatsApp"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
+    aria-hidden="true"
+  >
+    <!-- Círculo verde -->
+    <circle cx="16" cy="16" r="16" fill="#25D366"/>
+
+    <!-- Símbolo blanco ampliado -->
+    <g transform="translate(-4.8 -4.8) scale(1.30)">
+      <path
+        fill="#FFFFFF"
+        d="M16 6.2a9.7 9.7 0 0 0-8.3 14.7L6.4 25.6l4.9-1.3A9.7 9.7 0 1 0 16 6.2Zm0 17.5a7.8 7.8 0 0 1-4-.9l-.3-.2-2.9.8.8-2.8-.2-.3a7.8 7.8 0 1 1 6.6 3.4Zm4.3-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8.9-.1.2-.3.2-.5.1a6.4 6.4 0 0 1-1.9-1.2 7 7 0 0 1-1.3-1.6c-.1-.2 0-.3.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.1.9 2.2c.1.2 1.6 2.5 3.9 3.4.5.2.9.3 1.2.4.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.3-.2-.5-.3Z"
+      />
+    </g>
+  </svg>
+</a>
+
+
+  <!-- ===================== FOOTER (igual que index.html) ===================== -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <a href="index.html" class="logo" aria-label="Matteo Salvatore - Inicio">
+          <img src="img/logo-blanco.png" alt="Matteo Salvatore" class="logo-img logo-img-footer" width="666" height="81">
+        </a>
+        <p class="footer-text">Ropa con estilo, calidad y buen precio.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Enlaces</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Categorías</h4>
+        <ul class="footer-links">
+          <li><a href="productos.html?categoria=hombre">Hombre</a></li>
+         
+          <li><a href="productos.html?categoria=ofertas">Ofertas</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Contáctanos</h4>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/51994319421" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+          <li><a href="mailto:contacto@modafashion.com">contacto@modafashion.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Matteo Salvatore. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/productos.js"></script>
+</body>
+</html>

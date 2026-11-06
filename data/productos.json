@@ -1,0 +1,632 @@
+{
+  "productos": [
+    {
+      "id": "EJEMPLO-001",
+      "nombre": "Polo Henley Manga Corta",
+      "categoria": "polos",
+      "precio": 50.0,
+      "precioAnterior": null,
+      "descripcion": "Polo de ejemplo tipo henley, manga corta. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "tallasDisponibles": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "coloresDisponibles": [
+        "Blanco",
+        "Melange",
+        "Negro",
+        "Azul marino",
+        "Guinda"
+      ],
+      "imagenPrincipal": "img/productos/henly corto.jpg",
+      "imagenesPorColor": {
+       
+        
+        "Guinda": "img/productos/henlycorto-vino.jpg",
+
+         "Negro": "img/productos/henlycorto-negro.jpg",
+        
+        "Blanco": "img/productos/henlycorto-blanco.jpg",
+       
+        "Melange": "img/productos/henly corto.jpg",
+        
+        "Azul marino": "img/productos/henlycorto-azul.jpg"
+      },
+      "imagenesAdicionales": [
+        "img/productos/placeholder-producto-1-b.jpg",
+        "img/productos/placeholder-producto-1-c.jpg"
+      ],
+      "stock": 0,
+      "sku": "SK001",
+      "inventario": "POLO HENLEY MANGA CORTA"
+    },
+    {
+      "id": "EJEMPLO-002",
+      "nombre": "Polo Henley Manga Larga",
+      "categoria": "polos",
+      "precio": 55.0,
+      "precioAnterior": 0.0,
+      "descripcion": "Polo de ejemplo tipo henley, manga larga. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "tallasDisponibles": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "coloresDisponibles": [
+        "Blanco",
+        "Melange",
+        "Negro",
+        "Azul marino",
+        "Guinda"
+      ],
+      "imagenPrincipal": "img/productos/henley largo.jpg",
+       "imagenesPorColor": {
+       
+        
+        "Guinda": "img/productos/henlylarga-vino.jpg",
+
+         "Negro": "img/productos/henley largo.jpg",
+        
+        "Blanco": "img/productos/henlylarga-blanco.jpg",
+       
+        "Melange": "img/productos/henly corto.jpg",
+        
+        "Azul marino": "img/productos/henlylarga-azul.jpg"
+      },
+      "imagenesAdicionales": [
+        "img/productos/placeholder-producto-2-b.jpg",
+        "img/productos/placeholder-producto-2-c.jpg"
+      ],
+      "stock": 0,
+      "sku": "SKU-002",
+      "inventario": "POLO HENLEY MANGA LARGA"
+    },
+    {
+      "id": "EJEMPLO-003",
+      "nombre": "Polo Básico",
+      "categoria": "polos",
+      "precio": 35.0,
+      "precioAnterior": null,
+      "descripcion": "Polo básico confeccionado en algodón pima 30/1, suave y cómodo para el uso diario. Ideal para combinar con cualquier look casual o informal. Disponible en varias tallas y colores para que encuentres el que más se adapte a tu estilo. Perfecto para el día a día o para outfits minimalistas.",
+      "tallasDisponibles": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "coloresDisponibles": [
+        "Rojo",
+        "Verde cemento",
+        "Skay",
+        "Guinda",
+        "Negro",
+        "Blanco",
+        "Celeste bebe",
+        "Palo rosa",
+        "Rosado",
+        "Melange",
+        "Turquesa",
+        "Beige",
+        "Azul marino"
+      ],
+      "imagenPrincipal": "img/productos/basico.jpg",
+      "imagenesPorColor": {
+        "Rojo": "img/productos/polo-basico-1.jpg",
+        "Verde cemento": "img/productos/polo-basico-2.jpg",
+        "Guinda": "img/productos/polo-basico-3.jpg",
+        "Skay": "img/productos/polo-basico-4.jpg",
+        "Blanco": "img/productos/polo-basico-5.jpg",
+        "Celeste bebe": "img/productos/polo-basico-6.jpg",
+        "Rosado": "img/productos/polo-basico-7.jpg",
+        "Melange": "img/productos/polo-basico-8.jpg",
+        "Palo rosa": "img/productos/polo-basico-9.jpg",
+        "Turquesa": "img/productos/polo-basico 13.jpg",
+        "Beige": "img/productos/polo-basico-11.jpg",
+        "Azul marino": "img/productos/polo-basico-12.jpg"
+      },
+      "imagenesAdicionales": [],
+      "stock": 0,
+      "inventario": "POLO PIMA BASICO"
+    },
+    {
+      "id": "SKU-004",
+      "nombre": "Polo Boxy",
+      "categoria": "polos",
+      "precio": 45.0,
+      "precioAnterior": null,
+      "descripcion": "Polo de ejemplo, corte boxy. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "tallasDisponibles": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "coloresDisponibles": [
+        "Blanco",
+        "Melange",
+        "Negro",
+        "Verde",
+        "Crema",
+        "Azul marino"
+      ],
+      "imagenPrincipal": "img/productos/boxi.jpg",
+      "imagenesPorColor": {
+       
+        
+        "Crema": "img/productos/boxi-crema.jpg",
+
+         "Negro": "img/productos/boxi-negro.jpg",
+        
+        "Blanco": "img/productos/boxi-blanco.jpg",
+       
+        "Melange": "img/productos/boxi-melange.jpg",
+
+        "Verde": "img/productos/boxi-verde.jpg",
+        
+        "Azul marino": "img/productos/boxi-azul.jpg"
+      },
+      "imagenesAdicionales": [],
+      "inventario": "POLO BOXY",
+      "stock": 0,
+      "sku": "SKU-004"
+    },
+    {
+      "id": "EJEMPLO-005",
+      "nombre": "Oversize",
+      "categoria": "polos",
+      "precio": 45.0,
+      "precioAnterior": null,
+      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "tallasDisponibles": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "coloresDisponibles": [
+        "Blanco",
+        "Melange",
+        "Negro",
+        "Verde botella",
+        "Crema",
+        "Azul marino"
+      ],
+      "imagenPrincipal": "img/productos/oversize.jpg",
+      "imagenesPorColor": {
+       
+        
+        "Crema": "img/productos/oversize-crema.jpg",
+
+         "Negro": "img/productos/oversize-negro.jpg",
+        
+        "Blanco": "img/productos/oversize-blanco.jpg",
+       
+        "Melange": "img/productos/oversize-melange.jpg",
+
+        "Verde": "img/productos/oversize-verde.jpg",
+        
+        "Azul marino": "img/productos/oversize-azul noche.jpg"
+      },
+      "imagenesAdicionales": [
+        "img/productos/placeholder-producto-3-b.jpg"
+      ],
+      "stock": 0,
+      "sku": "SKU-005",
+      "inventario": "POLO OVERSIZE"
+    },
+    {
+      "id": "EJEMPLO-006",
+      "nombre": "Polo Camisero",
+      "categoria": "polos",
+      "precio": 55.0,
+      "precioAnterior": null,
+      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "tallasDisponibles": [
+        "L",
+        "M",
+        "S",
+        "XL"
+      ],
+      "coloresDisponibles": [
+        "Azul marino",
+        "Beige",
+        "Blanco",
+        "Camel",
+        "Marron",
+        "Melange",
+        "Negro",
+        "Guinda",
+        "Verde gucci"
+      ],
+      "imagenPrincipal": "img/productos/Camisero.jpg",
+      "imagenesPorColor": {
+        "Marron": "img/productos/Polo marrón oscuro en modelo masculino-6.jpg",
+        "Verde gucci": "img/productos/Polo piqué verde bosque-1.jpg",
+        "Guinda": "img/productos/Polo pique color vino sobre fondo blanco-4.jpg",
+        
+        "Blanco": "img/productos/Polo blanco de piqué en modelo-2.jpg",
+        "Negro": "img/productos/Polo negro de piqué sobre fondo blanco-7.jpg",
+        
+        "Melange": "img/productos/Polo gris jaspeado de manga corta-3.jpg",
+        
+       
+        "Beige": "img/productos/Retrato de catálogo con polo beige (1).jpg",
+        "Azul marino": "img/productos/Polo piqué azul marino-5.jpg"
+      },
+      "imagenesAdicionales": [
+        "img/productos/placeholder-producto-3-b.jpg"
+      ],
+      "stock": 0,
+      "sku": "SKU-006",
+      "inventario": "POLO CAMISERO"
+    },
+    {
+      "id": "EJEMPLO-007",
+      "nombre": "Conjunto canguro",
+      "categoria": "Conjuntos",
+      "precio": 85.0,
+      "precioAnterior": null,
+      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "tallasDisponibles": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "coloresDisponibles": [
+        "Negro",
+        "Skay",
+        "Rojo",
+        "Blanco",
+        "Guinda",
+        "Azul marino",
+        "Melange"
+      ],
+      "imagenPrincipal": "img/productos/canguro.jpg",
+      "imagenesPorColor": {
+       
+        
+        "Rojo": "img/productos/canguro-rojo.jpg",
+
+        "Skay": "img/productos/canguro.jpg",
+
+         "Negro": "img/productos/canguro-negro.jpg",
+        
+        "Blanco": "img/productos/canguro-blanco.jpg",
+       
+        "Melange": "img/productos/canguro-melange.jpg",
+
+        "Guinda": "img/productos/canguro-guinda.jpg",
+        
+        "Azul marino": "img/productos/canguro-azul noche.jpg"
+      },
+      "imagenesAdicionales": [
+        "img/productos/placeholder-producto-3-b.jpg"
+      ],
+      "stock": 0,
+      "sku": "SKU-007",
+      "inventario": "CONJUNTO canguro"
+    },
+    {
+      "id": "EJEMPLO-008",
+      "nombre": "cargo Fit",
+      "categoria": "pantalones",
+      "precio": 99.0,
+      "precioAnterior": null,
+      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "tallasDisponibles": [
+        "30",
+        "32",
+        "34",
+        "36"
+      ],
+      "coloresDisponibles": [
+        "Azul marino",
+        "Verde",
+        "Camell",
+        "Beige",
+        "Negro",
+        "Hueso"
+      ],
+      "imagenPrincipal": "img/productos/cargo.jpg",
+      "imagenesPorColor": {
+       
+        
+        "Beige": "img/productos/cargo-beige.jpg",
+
+        "Camell": "img/productos/cargo.jpg",
+
+         "Negro": "img/productos/cargo-negro.jpg",
+        
+        "Blanco": "img/productos/cargo-blanco.jpg",
+       
+        "Hueso": "img/productos/cargo-hueso.jpg",
+
+        "Verde": "img/productos/cargo-verde.jpg",
+
+        "Azul marino": "img/productos/cargo-azul noche.jpg"
+      },
+      "imagenesAdicionales": [
+        "img/productos/placeholder-producto-3-b.jpg"
+      ],
+      "stock": 0,
+      "sku": "SKU-008",
+      "inventario": "PANTALON cargo FIT"
+    },
+    {
+      "id": "EJEMPLO-009",
+      "nombre": "Skinny",
+      "categoria": "pantalones",
+      "precio": 80.0,
+      "precioAnterior": null,
+      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "tallasDisponibles": [
+        "28",
+        "30",
+        "32",
+        "34"
+      ],
+      "coloresDisponibles": [
+        "Guinda",
+        "Plomo plata",
+        "Verde",
+        "Beige",
+        "Blanco"
+      ],
+      "imagenPrincipal": "img/productos/skinny.jpg",
+      "imagenesPorColor": {
+       
+        
+       
+
+        "Blanco": "img/productos/skini-blanco.jpg"
+      },
+      "imagenesAdicionales": [
+        "img/productos/placeholder-producto-3-b.jpg"
+      ],
+      "stock": 0,
+      "sku": "SKU-009",
+      "inventario": "PANTALON SKINNY"
+    },
+    {
+      "id": "EJEMPLO-010",
+      "nombre": "Jogger",
+      "categoria": "pantalones",
+      "precio": 70.0,
+      "precioAnterior": null,
+      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "tallasDisponibles": [
+        "30",
+        "32",
+        "34",
+        "36"
+      ],
+      "coloresDisponibles": [
+        "Camell",
+        "Beige",
+        "Plomo plata",
+        "Verde",
+        "Azul marino",
+        "Negro",
+        "Gris carbon",
+        "Blanco",
+        "Guinda"
+      ],
+      "imagenPrincipal": "img/productos/jogger.jpg",
+      "imagenesPorColor": {
+       
+        
+        "gris carbon": "img/productos/jogger-carbon.jpg",
+
+        "Beige": "img/productos/jogger-beige.jpg",
+
+        "Guinda": "img/productos/jogger-guinda.jpg",
+
+        "Camell": "img/productos/jogger.jpg",
+
+         "Negro": "img/productos/jogger-negro.jpg",
+        
+        "Blanco": "img/productos/jogger-blanco.jpg",
+
+        "plomo plata": "img/productos/jogger-plomo rata.jpg",
+       
+       "Verde": "img/productos/jogger-verde.jpg",
+
+        "Azul marino": "img/productos/jogger-azul.jpg"
+      },
+
+       
+      "imagenesAdicionales": [
+        "img/productos/placeholder-producto-3-b.jpg"
+      ],
+      "stock": 0,
+      "sku": "SKU-010",
+      "inventario": "PANTALON JOGGUER"
+    },
+    {
+      "id": "EJEMPLO-011",
+      "nombre": "Conjunto Raglan",
+      "categoria": "Conjuntos",
+      "precio": 80.0,
+      "precioAnterior": null,
+      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "tallasDisponibles": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "coloresDisponibles": [
+        "Negro",
+        "Skay",
+        "Rojo",
+        "Blanco",
+        "Guinda",
+        "Azul marino",
+        "Melange"
+      ],
+      "imagenPrincipal": "img/productos/raglan.jpg",
+      "imagenesPorColor": {
+       
+        
+        "Rojo": "img/productos/raglan-rojo.jpg",
+
+        "Skay": "img/productos/raglan-skay.jpg",
+
+         "Negro": "img/productos/raglan-negro.jpg",
+
+        "Blanco": "img/productos/raglan-blanco.jpg",
+       
+        "Melange": "img/productos/raglan-melange.jpg",
+
+        "Guinda": "img/productos/raglan-guinda.jpg",
+        
+        "Azul marino": "img/productos/raglan-azul.jpg"
+      },
+      "imagenesAdicionales": [
+        "img/productos/placeholder-producto-3-b.jpg"
+      ],
+      "stock": 0,
+      "sku": "SKU-011",
+      "inventario": "CONJUNTO RAGLAN"
+    },
+    {
+      "id": "EJEMPLO-012",
+      "nombre": "Conjunto Tulum",
+      "categoria": "Conjuntos",
+      "precio": 105.0,
+      "precioAnterior": null,
+      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "tallasDisponibles": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "coloresDisponibles": [
+        "Blanco perlado",
+        "Azul marino",
+        "Arena",
+        "Palo rosa",
+        "Beige",
+        "Camell",
+        "Negro"
+      ],
+      "imagenPrincipal": "img/productos/Conjunto Tulum.jpg",
+      "imagenesPorColor": {
+       
+        
+        "arena": "img/productos/tulum-arena.jpg",
+
+        "Beige": "img/productos/tulum-beige.jpg",
+
+         "Camell": "img/productos/tulum-camell.jpg",
+
+        "Blanco perlado": "img/productos/tulum-blanco.jpg",
+       
+        "Palo rosa": "img/productos/tulum-palo rosa.jpg"
+
+        
+      },
+      "imagenesAdicionales": [
+        "img/productos/placeholder-producto-3-b.jpg"
+      ],
+      "stock": 0,
+      "sku": "SKU-012",
+      "inventario": "CONJUNTO TULUM"
+    },
+    {
+      "id": "EJEMPLO-013",
+      "nombre": "Polera",
+      "categoria": "Poleras",
+      "precio": 80.0,
+      "precioAnterior": null,
+      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "inventario": "POLERA", 
+      "tallasDisponibles": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "coloresDisponibles": [
+        "Azul marino",
+        "Beige",
+        "Camell",
+        "Hueso",
+        "Melange",
+        "Rojo",
+        "Sky",
+        "Verde botella",
+        "Negro"
+      ],
+      "imagenPrincipal": "img/productos/poleras.jpg",
+      "imagenesPorColor": {
+        "Rojo": "img/productos/polera-rojo.jpg",
+        "Azul marino": "img/productos/polera-azul marino.jpg",
+        "Beige": "img/productos/polera-beige.jpg",
+        "Camell": "img/productos/polera-camell.jpg",
+        "Hueso": "img/productos/polera-hueso.jpg",
+        "Melange": "img/productos/polera-melange.jpg",
+        "Sky": "img/productos/polera-sky.jpg",
+        "Verde botella": "img/productos/polera-verde botella.jpg",
+        "Negro": "img/productos/polera-negra.jpg"
+      },
+      "imagenesAdicionales": [
+        "img/productos/placeholder-producto-3-b.jpg"
+      ],
+      "stock": 0,
+      "sku": "SKU-013"
+    },
+    {
+      "id": "EJEMPLO-014",
+      "nombre": "Casaca",
+      "categoria": "Casacas",
+      "precio": 0.0,
+      "precioAnterior": null,
+      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "tallasDisponibles": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "coloresDisponibles": [
+        "Color ejemplo 1"
+      ],
+      "imagenPrincipal": "img/productos/placeholder-producto-3.jpg",
+      "imagenesAdicionales": [
+        "img/productos/placeholder-producto-3-b.jpg"
+      ],
+      "stock": 0,
+      "sku": "SKU-014"
+    },
+    {
+      "id": "EJEMPLO-015",
+      "nombre": "Calzado",
+      "categoria": "Calzado",
+      "precio": 250.0,
+      "precioAnterior": null,
+      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "tallasDisponibles": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "coloresDisponibles": [
+        "Color ejemplo 1"
+      ],
+      "imagenPrincipal": "img/productos/placeholder-producto-3.jpg",
+      "imagenesAdicionales": [
+        "img/productos/placeholder-producto-3-b.jpg"
+      ],
+      "stock": 0,
+      "sku": "SKU-015"
+    }
+  ]
+}

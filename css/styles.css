@@ -492,7 +492,8 @@ body {
 .hero-product img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  
 }
 .hero-product-price {
   position: absolute;
@@ -616,7 +617,7 @@ body {
 
 .product-image-wrapper {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 3 / 4.5;
   background: linear-gradient(160deg, #EFE7DC, #E3D9CC);
   overflow: hidden;
 }
@@ -624,6 +625,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+ object-position: center 50%;
   transition: transform 0.45s var(--ease);
 }
 .product-image-wrapper.is-empty::after {
@@ -1064,8 +1066,6 @@ body {
 }
 
 /* IMAGEN DE PRODUCTO: SIN BORDE BLANCO NI ESPACIOS INTERNOS */
-.product-detail-image,
-.product-detail-image img,
 .product-main-image,
 .product-main-image img {
   box-sizing: border-box;
@@ -1088,10 +1088,103 @@ body {
 }
 
 .producto-imagen img, 
-.product-image img, 
 .card-img-top,
 .detalle-imagen img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.quantity-selector input {
+  width: 48px;
+  min-width: 48px;
+  max-width: 48px;
+  height: 36px;
+  padding: 4px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.quantity-error {
+  color: #dc2626;
+  font-size: 12px;
+  margin-top: 5px;
+  min-height: 16px;
+  line-height: 16px;
+}
+
+.quantity-selector button {
+  width: 34px;
+  height: 36px;
+  cursor: pointer;
+}
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantity-selector input {
+  width: 48px;
+  min-width: 48px;
+  max-width: 48px;
+  height: 36px;
+  padding: 4px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.quantity-error {
+  color: #dc2626;
+  font-size: 12px;
+  margin-top: 5px;
+  min-height: 16px;
+  line-height: 16px;
+}
+
+.quantity-selector button {
+  width: 34px;
+  height: 36px;
+  cursor: pointer;
+}
+/* BOTÓN ELIMINAR PRODUCTO DEL CARRITO */
+
+.checkout-remove {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid #eeeeee;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #777777;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.checkout-remove svg {
+  display: block;
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px;
+  min-height: 22px;
+  overflow: visible;
+}
+
+.checkout-remove svg path,
+.checkout-remove svg rect {
+  display: inline;
+  visibility: visible;
+  opacity: 1;
+}
+
+.checkout-remove:hover {
+  color: #d93636;
+  background: #fff1f1;
+  border-color: #f2cccc;
+}
+
+.checkout-remove:active {
+  transform: scale(0.94);
 }

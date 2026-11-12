@@ -196,19 +196,40 @@
   }
 
   /** Suma 1 unidad. Devuelve false si ya llegó al máximo disponible. */
-  function agregar(item, maximo) {
-    const lista = leer();
-    const existente = lista.find(function (i) {
-      return i.id === item.id && i.color === item.color && i.talla === item.talla;
-    });
-    const actual = existente ? existente.cantidad : 0;
-    if (maximo && actual >= maximo) return false;
-    if (existente) existente.cantidad += 1;
-    else lista.push(Object.assign({}, item, { cantidad: 1 }));
-    guardar(lista);
-    actualizarContador();
-    return true;
+ function agregar(item, maximo, cantidad) {
+  const lista = leer();
+
+  cantidad = Number(cantidad) || 1;
+
+  if (!Number.isInteger(cantidad) || cantidad < 1) {
+    return false;
   }
+
+  const existente = lista.find(function (i) {
+    return i.id === item.id &&
+           i.color === item.color &&
+           i.talla === item.talla;
+  });
+
+  const actual = existente ? existente.cantidad : 0;
+
+  if (maximo && actual + cantidad > maximo) {
+    return false;
+  }
+
+  if (existente) {
+    existente.cantidad += cantidad;
+  } else {
+    lista.push(Object.assign({}, item, {
+      cantidad: cantidad
+    }));
+  }
+
+  guardar(lista);
+  actualizarContador();
+
+  return true;
+}
 
   function actualizarContador() {
     const n = total();

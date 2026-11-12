@@ -7,13 +7,6 @@
   <meta name="description" content="Matteo Salvatore - Detalle de producto.">
   <link rel="stylesheet" href="css/styles.css">
 
-  <!--
-    Estilos exclusivos de la ficha de producto.
-    No se modificó css/styles.css: estas reglas viven solo aquí y
-    reutilizan las mismas variables de color/tipografía (--color-*,
-    --font-*, --radius-*, --shadow-*, --ease) ya definidas en ese
-    archivo, para mantener idéntica identidad visual.
-  -->
   <style>
     .product-page {
       max-width: var(--container);
@@ -49,27 +42,29 @@
       margin-bottom: 3.5rem;
     }
 
-   .product-media-frame {
+    .product-media-frame {
       position: relative;
       max-width: 420px;
-      margin: 0 auto;
+      margin: 80px auto 0;
       aspect-ratio: 4 / 5;
       background: var(--color-surface);
       border: 1px solid var(--color-border-2);
       border-radius: var(--radius-l);
-      padding: 0; /* <-- Quitamos el padding para que la foto toque los bordes del marco */
+      padding: 0;
       box-shadow: var(--shadow-s);
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden; /* Esto oculta cualquier excedente de la foto */
+      overflow: hidden;
     }
+
     .product-media-frame img {
       width: 100% !important;
       height: 100% !important;
-      object-fit: cover !important; /* Fuerza a que cubra absolutamente todo el espacio */
-      border-radius: 0; /* Si prefieres esquinas redondeadas en la tarjeta, puedes mantener var(--radius-m) */
+      object-fit: cover !important;
+      border-radius: 0;
     }
+
     .product-thumbs {
       display: flex;
       gap: 0.6rem;
@@ -78,6 +73,7 @@
       margin: 0.9rem auto 0;
       max-width: 420px;
     }
+
     .product-thumb {
       width: 64px;
       height: 80px;
@@ -89,8 +85,10 @@
       cursor: pointer;
       transition: border-color 0.2s var(--ease);
     }
+
     .product-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .product-thumb.is-selected { border-color: var(--color-primary); }
+
     .badge-oferta {
       position: absolute;
       top: 1rem;
@@ -109,12 +107,14 @@
       flex-direction: column;
       gap: 1rem;
     }
+
     .product-eyebrow {
       font-size: 0.8rem;
       font-weight: 600;
       color: var(--color-coral);
       text-transform: capitalize;
     }
+
     .product-title {
       font-family: var(--font-display);
       font-weight: 600;
@@ -122,23 +122,27 @@
       color: var(--color-ink);
       line-height: 1.15;
     }
+
     .product-price-block {
       display: flex;
       align-items: baseline;
       gap: 0.75rem;
       flex-wrap: wrap;
     }
+
     .product-price-main {
       font-family: var(--font-display);
       font-weight: 700;
       font-size: 1.85rem;
       color: var(--color-gold);
     }
+
     .product-price-strike {
       font-size: 1rem;
       color: var(--color-ink-soft);
       text-decoration: line-through;
     }
+
     .product-lead {
       color: var(--color-ink-soft);
       font-size: 0.95rem;
@@ -147,13 +151,16 @@
     }
 
     .product-selector { margin-top: 0.3rem; }
+
     .selector-label {
       font-size: 0.82rem;
       font-weight: 700;
       color: var(--color-ink);
       margin-bottom: 0.6rem;
     }
+
     .chip-group { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+
     .chip {
       padding: 0.5rem 1rem;
       border-radius: var(--radius-pill);
@@ -165,8 +172,10 @@
       cursor: pointer;
       transition: border-color 0.2s var(--ease), color 0.2s var(--ease), background 0.2s var(--ease);
     }
+
     .chip:hover { border-color: var(--color-primary-2); color: var(--color-primary); }
     .chip.is-agotado { text-decoration: line-through; opacity: 0.55; }
+
     .chip.is-selected {
       background: var(--color-primary);
       border-color: var(--color-primary);
@@ -180,6 +189,7 @@
       align-items: center;
       gap: 0.45rem;
     }
+
     .availability::before {
       content: "";
       width: 0.5rem;
@@ -188,6 +198,7 @@
       background: currentColor;
       flex-shrink: 0;
     }
+
     .availability.is-disponible { color: var(--color-whatsapp); }
     .availability.is-agotado { color: var(--color-coral-2); }
 
@@ -197,6 +208,7 @@
       gap: 0.8rem;
       margin-top: 0.5rem;
     }
+
     .buy-button {
       display: inline-flex;
       align-items: center;
@@ -216,7 +228,9 @@
       cursor: pointer;
       font-family: inherit;
     }
+
     .buy-button:hover { background: var(--color-coral-2); transform: translateY(-2px); box-shadow: var(--shadow-l); }
+
     .buy-button[aria-disabled="true"] {
       background: var(--color-border);
       color: var(--color-ink-soft);
@@ -237,23 +251,58 @@
       font-size: 0.88rem;
       transition: background 0.2s var(--ease), color 0.2s var(--ease);
     }
+
     .whatsapp-inline-link:hover { background: var(--color-whatsapp); color: #fff; }
+
+    /* ---------- Selector de cantidad ---------- */
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .quantity-selector input {
+      width: 48px;
+      min-width: 48px;
+      max-width: 48px;
+      height: 36px;
+      padding: 4px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .quantity-error {
+      color: #dc2626;
+      font-size: 12px;
+      margin-top: 5px;
+      min-height: 16px;
+      line-height: 16px;
+    }
+
+    .quantity-selector button {
+      width: 34px;
+      height: 36px;
+      cursor: pointer;
+    }
 
     /* ---------- Descripción del producto ---------- */
     .product-description-section {
       border-top: 1px solid var(--color-border-2);
       padding-top: 2.5rem;
     }
+
     .description-grid {
       display: grid;
       gap: 2rem;
       margin-top: 1.3rem;
     }
+
     .description-text {
       color: var(--color-ink-soft);
       line-height: 1.7;
       font-size: 0.95rem;
     }
+
     .specs-list {
       display: grid;
       gap: 0.9rem;
@@ -263,6 +312,7 @@
       padding: 1.3rem 1.4rem;
       align-content: start;
     }
+
     .specs-list > div {
       display: flex;
       justify-content: space-between;
@@ -271,6 +321,7 @@
       border-bottom: 1px solid var(--color-border-2);
       padding-bottom: 0.7rem;
     }
+
     .specs-list > div:last-child { border-bottom: none; padding-bottom: 0; }
     .specs-list dt { color: var(--color-ink-soft); font-weight: 600; }
     .specs-list dd { margin: 0; font-weight: 700; color: var(--color-ink); text-align: right; }
@@ -282,11 +333,13 @@
 
     @media (min-width: 1024px) {
       .product-page { padding-left: 2rem; padding-right: 2rem; }
+
       .product-hero {
         grid-template-columns: 440px 1fr;
         gap: 3.5rem;
         align-items: start;
       }
+
       .product-media-frame { max-width: 100%; position: sticky; top: 6.5rem; }
       .product-hero-actions { flex-direction: row; }
       .buy-button { flex: 1; }
@@ -294,9 +347,10 @@
     }
   </style>
 </head>
+
 <body>
 
-  <!-- ===================== HEADER (igual que index.html) ===================== -->
+  <!-- ===================== HEADER ===================== -->
   <header class="site-header">
     <div class="header-top">
       <a href="index.html" class="logo" aria-label="Matteo Salvatore - Inicio">
@@ -318,7 +372,7 @@
 
       <div class="header-actions">
         <a href="#" class="icon-link" aria-label="Favoritos">♡</a>
-        <a href="#" class="icon-link" aria-label="Carrito de compras">🛒</a>
+        <a href="checkout.html" class="icon-link" aria-label="Carrito de compras">🛒</a>
         <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
           <span></span>
           <span></span>
@@ -332,7 +386,6 @@
         <li><a href="index.html">Inicio</a></li>
         <li><a href="productos.html">Todos los productos</a></li>
         <li><a href="productos.html?categoria=hombre">Hombre</a></li>
-       
         <li><a href="productos.html?categoria=ofertas">Ofertas</a></li>
         <li><a href="contacto.html">Contacto</a></li>
       </ul>
@@ -342,7 +395,6 @@
   <main>
     <div class="product-page">
 
-      <!-- Migas de pan -->
       <nav class="breadcrumb" aria-label="Ruta de navegación">
         <a href="index.html">Inicio</a>
         <span aria-hidden="true">/</span>
@@ -351,13 +403,11 @@
         <span id="breadcrumbNombre">Detalle</span>
       </nav>
 
-      <!-- Estado de carga / error -->
       <p id="productoEstadoMensaje" class="product-status-message">Cargando producto...</p>
 
       <!-- ===================== FICHA PRINCIPAL ===================== -->
       <section class="product-hero" id="productoDetalle" hidden>
 
-        <!-- Imagen -->
         <div class="product-hero-media">
           <div class="product-media-frame">
             <span id="productoBadgeOferta" class="badge-oferta" hidden>Oferta</span>
@@ -366,7 +416,6 @@
           <div id="productoMiniaturas" class="product-thumbs" hidden></div>
         </div>
 
-        <!-- Información -->
         <div class="product-hero-info">
           <p id="productoCategoria" class="product-eyebrow"></p>
           <h1 id="productoNombre" class="product-title"></h1>
@@ -378,14 +427,35 @@
 
           <p id="productoDescripcionCorta" class="product-lead"></p>
 
+          <!-- Selector de color -->
           <div class="product-selector" id="grupoColores" hidden>
             <h2 class="selector-label">Color</h2>
             <div id="productoColores" class="chip-group"></div>
           </div>
 
+          <!-- Selector de talla -->
           <div class="product-selector" id="grupoTallas" hidden>
             <h2 class="selector-label">Talla</h2>
             <div id="productoTallas" class="chip-group"></div>
+          </div>
+
+          <!-- Selector de cantidad -->
+          <div class="product-selector" id="grupoCantidad">
+            <h2 class="selector-label">Cantidad</h2>
+
+            <div class="quantity-selector">
+              <button type="button" id="restarCantidad">−</button>
+              <input
+                type="number"
+                id="cantidadProducto"
+                value="1"
+                min="1"
+                step="1"
+              >
+              <button type="button" id="sumarCantidad">+</button>
+            </div>
+
+            <p id="errorCantidad" class="quantity-error"></p>
           </div>
 
           <p id="productoDisponibilidad" class="availability"></p>
@@ -401,6 +471,7 @@
         <h2 class="section-title">Descripción del producto</h2>
         <div class="description-grid">
           <p id="productoDescripcionLarga" class="description-text"></p>
+
           <dl class="specs-list">
             <div><dt>SKU</dt><dd id="specSku"></dd></div>
             <div><dt>Categoría</dt><dd id="specCategoria"></dd></div>
@@ -413,35 +484,33 @@
     </div>
   </main>
 
-<!-- ===================== BOTÓN FLOTANTE DE WHATSAPP ===================== -->
-<a
-  href="https://wa.me/51994319421?text=Hola%2C%20quiero%20más%20información%20sobre%20sus%20productos"
-  class="whatsapp-float"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Escríbenos por WhatsApp"
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="32"
-    height="32"
-    viewBox="0 0 32 32"
-    aria-hidden="true"
+  <!-- ===================== BOTÓN FLOTANTE DE WHATSAPP ===================== -->
+  <a
+    href="https://wa.me/51994319421?text=Hola%2C%20quiero%20más%20información%20sobre%20sus%20productos"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Escríbenos por WhatsApp"
   >
-    <!-- Círculo verde -->
-    <circle cx="16" cy="16" r="16" fill="#25D366"/>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      aria-hidden="true"
+    >
+      <circle cx="16" cy="16" r="16" fill="#25D366"/>
 
-    <!-- Símbolo blanco ampliado -->
-    <g transform="translate(-4.8 -4.8) scale(1.30)">
-      <path
-        fill="#FFFFFF"
-        d="M16 6.2a9.7 9.7 0 0 0-8.3 14.7L6.4 25.6l4.9-1.3A9.7 9.7 0 1 0 16 6.2Zm0 17.5a7.8 7.8 0 0 1-4-.9l-.3-.2-2.9.8.8-2.8-.2-.3a7.8 7.8 0 1 1 6.6 3.4Zm4.3-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8.9-.1.2-.3.2-.5.1a6.4 6.4 0 0 1-1.9-1.2 7 7 0 0 1-1.3-1.6c-.1-.2 0-.3.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.1.9 2.2c.1.2 1.6 2.5 3.9 3.4.5.2.9.3 1.2.4.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.3-.2-.5-.3Z"
-      />
+      <g transform="translate(-4.8 -4.8) scale(1.30)">
+        <path
+          fill="#FFFFFF"
+          d="M16 6.2a9.7 9.7 0 0 0-8.3 14.7L6.4 25.6l4.9-1.3A9.7 9.7 0 1 0 16 6.2Zm0 17.5a7.8 7.8 0 0 1-4-.9l-.3-.2-2.9.8.8-2.8-.2-.3a7.8 7.8 0 1 1 6.6 3.4Zm4.3-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8.9-.1.2-.3.2-.5.1a6.4 6.4 0 0 1-1.9-1.2 7 7 0 0 1-1.3-1.6c-.1-.2 0-.3.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.1.9 2.2c.1.2 1.6 2.5 3.9 3.4.5.2.9.3 1.2.4.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.3-.2-.5-.3Z"
+        />
+      </g>
     </svg>
-  </svg>
-</a>
-  
-  <!-- ===================== FOOTER (igual que index.html) ===================== -->
+  </a>
+
+  <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-col">
@@ -485,33 +554,26 @@
 
   <script src="js/main.js"></script>
 
-  <!-- =========================================================
-       Script propio de esta página: lee data/productos.json,
-       busca el producto según ?id= en la URL y lo muestra.
-       No se modificó productos.js, productos.json ni ningún otro
-       archivo: toda la lógica vive aquí, autocontenida.
-       ========================================================= -->
   <script>
     (function () {
       "use strict";
 
-      // -----------------------------------------------------------
-      // ⚠️ CONFIGURACIÓN PENDIENTE:
-      // Reemplaza el valor de abajo por tu número real de WhatsApp
-      // en formato internacional, SIN "+" ni espacios.
-      // Ejemplo: "51987654321"
-      // -----------------------------------------------------------
       const NUMERO_WHATSAPP = "51994319421";
-
       const RUTA_JSON = "data/productos.json";
 
       let tallaSeleccionada = null;
       let colorSeleccionado = null;
       let productoActual = null;
+      let cantidadSeleccionada = 1;
 
-      /** Ordena tallas: XS, S, M, L, XL, XXL... y las numéricas (28, 30, 32...) de menor a mayor. */
+      const campoCantidad = document.getElementById("cantidadProducto");
+      const errorCantidad = document.getElementById("errorCantidad");
+      const botonRestar = document.getElementById("restarCantidad");
+      const botonSumar = document.getElementById("sumarCantidad");
+
       function ordenarTallas(lista) {
         const orden = ["XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL"];
+
         const clave = (t) => {
           const v = String(t).trim().toUpperCase();
           const i = orden.indexOf(v);
@@ -519,6 +581,7 @@
           const n = parseFloat(v);
           return Number.isNaN(n) ? [2, 0] : [1, n];
         };
+
         return lista.slice().sort((a, b) => {
           const x = clave(a), y = clave(b);
           return x[0] - y[0] || x[1] - y[1];
@@ -528,6 +591,7 @@
       function formatearPrecio(valor) {
         const numero = Number(valor);
         if (Number.isNaN(numero)) return "S/ 0.00";
+
         return "S/ " + numero.toLocaleString("es-PE", {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2
@@ -551,27 +615,27 @@
         document.getElementById("descripcionSection").hidden = true;
       }
 
-      /**
-       * Crea un grupo de chips seleccionables (talla o color).
-       * Solo controla el estado visual "seleccionado"; no hay carrito.
-       */
       function crearChips(contenedor, valores, alSeleccionar) {
         contenedor.innerHTML = "";
+
         valores.forEach((valor, indice) => {
           const chip = document.createElement("button");
           chip.type = "button";
           chip.className = "chip";
           chip.textContent = valor;
+
           if (indice === 0) {
             chip.classList.add("is-selected");
             alSeleccionar(valor);
           }
+
           chip.addEventListener("click", () => {
             contenedor.querySelectorAll(".chip").forEach((c) => c.classList.remove("is-selected"));
             chip.classList.add("is-selected");
             alSeleccionar(valor);
             actualizarEnlaceCompra();
           });
+
           contenedor.appendChild(chip);
         });
       }
@@ -585,60 +649,84 @@
         return (Array.isArray(v) ? v : [v]).filter(Boolean);
       }
 
-      /** Fotos asociadas a un color (imagenesPorColor), o [] si no hay. */
       function fotosDelColor(color) {
         const mapa = (productoActual && productoActual.imagenesPorColor) || {};
         const clave = Object.keys(mapa).find((k) => norm(k) === norm(color));
+
         if (clave) return aLista(mapa[clave]);
-        // Sin imagenesPorColor: busca fotos cuyo nombre de archivo contenga el color
-        // (ej. "polo-vino.jpg" para el color "Vino")
+
         const limpio = (t) => norm(t).replace(/[^a-z0-9]/g, "");
         const c = limpio(color);
+
         if (!c) return [];
-        const todas = [productoActual.imagenPrincipal].concat(aLista(productoActual.imagenesAdicionales)).filter(Boolean);
-        return todas.filter((r) => limpio(r.split("/").pop().replace(/\.[^.]+$/, "")).includes(c));
+
+        const todas = [productoActual.imagenPrincipal]
+          .concat(aLista(productoActual.imagenesAdicionales))
+          .filter(Boolean);
+
+        return todas.filter((r) =>
+          limpio(r.split("/").pop().replace(/\.[^.]+$/, "")).includes(c)
+        );
       }
 
       function ponerImagen(ruta) {
         const img = document.getElementById("productoImagen");
         const respaldo = productoActual.imagenPrincipal || "";
+
         img.onerror = function () {
           img.onerror = null;
           if (respaldo && img.getAttribute("src") !== respaldo) img.src = respaldo;
         };
+
         img.src = ruta;
       }
 
       function dibujarMiniaturas(fotos, seleccionada) {
         const cont = document.getElementById("productoMiniaturas");
         cont.innerHTML = "";
-        if (fotos.length < 2) { cont.hidden = true; return; }
+
+        if (fotos.length < 2) {
+          cont.hidden = true;
+          return;
+        }
+
         fotos.forEach((ruta) => {
           const b = document.createElement("button");
           b.type = "button";
           b.className = "product-thumb" + (ruta === seleccionada ? " is-selected" : "");
           b.setAttribute("aria-label", "Ver foto");
+
           const i = document.createElement("img");
-          i.src = ruta; i.alt = "";
+          i.src = ruta;
+          i.alt = "";
+
           i.addEventListener("error", () => b.remove(), { once: true });
           b.appendChild(i);
+
           b.addEventListener("click", () => {
             ponerImagen(ruta);
             cont.querySelectorAll(".product-thumb").forEach((x) => x.classList.remove("is-selected"));
             b.classList.add("is-selected");
           });
+
           cont.appendChild(b);
         });
+
         cont.hidden = false;
       }
 
-      /** Al elegir un color: cambia la foto grande y las miniaturas. */
       function mostrarFotosDelColor(color) {
         if (!productoActual) return;
-        const generales = [productoActual.imagenPrincipal].concat(aLista(productoActual.imagenesAdicionales)).filter(Boolean);
+
+        const generales = [productoActual.imagenPrincipal]
+          .concat(aLista(productoActual.imagenesAdicionales))
+          .filter(Boolean);
+
         const delColor = fotosDelColor(color);
         const fotos = delColor.length ? delColor : generales;
+
         if (!fotos.length) return;
+
         ponerImagen(fotos[0]);
         dibujarMiniaturas(fotos, fotos[0]);
       }
@@ -647,36 +735,43 @@
         return Object.keys(obj).find((k) => norm(k) === norm(nombre));
       }
 
-      /**
-       * Stock de una combinación color + talla.
-       * stockPorColor puede ser: "Rojo": 5  (todo el color)  o
-       * "Rojo": {"S": 2, "M": 5}  (por talla; la talla que no aparece = 0).
-       * Si el color no está en stockPorColor, se usa el stock general.
-       */
       function stockDe(color, talla) {
         const mapa = (productoActual && productoActual.stockPorColor) || null;
+
         if (mapa && color) {
           const clave = buscarClave(mapa, color);
+
           if (clave !== undefined) {
             const v = mapa[clave];
+
             if (v && typeof v === "object") {
-              if (!talla) return Object.values(v).reduce((t, n) => t + (Number(n) || 0), 0);
+              if (!talla) {
+                return Object.values(v).reduce((t, n) => t + (Number(n) || 0), 0);
+              }
+
               const ct = buscarClave(v, talla);
               return ct === undefined ? 0 : (Number(v[ct]) || 0);
             }
+
             return Number(v) || 0;
           }
         }
+
         return Number(productoActual && productoActual.stock) || 0;
       }
 
-      /** Marca tallas agotadas del color elegido y cambia a una con stock si hace falta. */
       function refrescarTallas() {
         const chips = Array.from(document.querySelectorAll("#productoTallas .chip"));
+
         if (!chips.length) return;
-        chips.forEach((c) => c.classList.toggle("is-agotado", stockDe(colorSeleccionado, c.textContent) <= 0));
+
+        chips.forEach((c) =>
+          c.classList.toggle("is-agotado", stockDe(colorSeleccionado, c.textContent) <= 0)
+        );
+
         if (stockDe(colorSeleccionado, tallaSeleccionada) <= 0) {
           const libre = chips.find((c) => !c.classList.contains("is-agotado"));
+
           if (libre) {
             chips.forEach((c) => c.classList.remove("is-selected"));
             libre.classList.add("is-selected");
@@ -687,25 +782,70 @@
 
       function actualizarDisponibilidad() {
         if (!productoActual) return;
+
         const n = stockDe(colorSeleccionado, tallaSeleccionada);
         const hayStock = n > 0;
         const el = document.getElementById("productoDisponibilidad");
+
         el.textContent = hayStock
           ? (n <= 5 ? "Últimas " + n + " unidades" : "Disponible")
           : (colorSeleccionado || tallaSeleccionada ? "Esta combinación está agotada" : "Agotado temporalmente");
+
         el.classList.toggle("is-disponible", hayStock);
         el.classList.toggle("is-agotado", !hayStock);
+
         const boton = document.getElementById("botonComprar");
-        if (hayStock) boton.removeAttribute("aria-disabled"); else boton.setAttribute("aria-disabled", "true");
+
+        if (hayStock) {
+          boton.removeAttribute("aria-disabled");
+        } else {
+          boton.setAttribute("aria-disabled", "true");
+        }
+
         boton.textContent = hayStock ? "Agregar 🛒" : "Producto agotado";
       }
 
-      function actualizarEnlaceCompra() { /* el botón ahora agrega al carrito */ }
+      function validarCantidad() {
+        const disponible = stockDe(colorSeleccionado, tallaSeleccionada);
+        const cantidad = Number(campoCantidad.value);
+
+        cantidadSeleccionada = cantidad;
+
+        if (!Number.isInteger(cantidad) || cantidad < 1) {
+          errorCantidad.textContent = "Ingresa una cantidad válida";
+          return false;
+        }
+
+        if (cantidad > disponible) {
+          errorCantidad.textContent =
+            "Stock insuficiente. Solo quedan " + disponible + " unidades disponibles";
+          return false;
+        }
+
+        errorCantidad.textContent = "";
+        return true;
+      }
+
+      function actualizarSelectorCantidad() {
+        const disponible = stockDe(colorSeleccionado, tallaSeleccionada);
+
+        campoCantidad.max = disponible;
+        campoCantidad.value = 1;
+        cantidadSeleccionada = 1;
+        errorCantidad.textContent = "";
+      }
+
+      function actualizarEnlaceCompra() {
+        /* El botón ahora agrega al carrito. */
+      }
 
       function agregarAlCarrito() {
         if (!productoActual || !window.Carrito) return;
+
+        if (!validarCantidad()) return;
+
         const disponible = stockDe(colorSeleccionado, tallaSeleccionada);
-        if (disponible <= 0) return;
+
         const ok = window.Carrito.agregar({
           id: productoActual.id,
           nombre: productoActual.nombre,
@@ -713,10 +853,18 @@
           color: colorSeleccionado,
           talla: tallaSeleccionada,
           imagen: document.getElementById("productoImagen").getAttribute("src")
-        }, disponible);
-        window.Carrito.aviso(ok
-          ? "Agregado al carrito 🛒"
-          : "Ya agregaste todas las unidades disponibles");
+        }, disponible, cantidadSeleccionada);
+
+        if (ok) {
+          errorCantidad.textContent = "";
+
+          window.Carrito.aviso(
+            cantidadSeleccionada + " unidad(es) agregada(s) al carrito 🛒"
+          );
+        } else {
+          errorCantidad.textContent =
+            "Stock insuficiente. Revisa las unidades disponibles.";
+        }
       }
 
       function mostrarProducto(producto) {
@@ -748,31 +896,44 @@
         document.getElementById("productoNombre").textContent = nombre;
         document.getElementById("productoPrecio").textContent = formatearPrecio(precio);
         document.getElementById("productoDescripcionCorta").textContent = descripcion;
+
         document.getElementById("productoDescripcionLarga").textContent =
           descripcion || "Este producto todavía no tiene una descripción detallada.";
 
-        // Precio anterior / etiqueta de oferta
         const precioAnteriorEl = document.getElementById("productoPrecioAnterior");
         const badgeOferta = document.getElementById("productoBadgeOferta");
         const hayOferta = precioAnterior && Number(precioAnterior) > Number(precio);
+
         precioAnteriorEl.hidden = !hayOferta;
         badgeOferta.hidden = !hayOferta;
+
         if (hayOferta) {
           precioAnteriorEl.textContent = formatearPrecio(precioAnterior);
         }
 
         // Selector de color
         const grupoColores = document.getElementById("grupoColores");
+
         if (Array.isArray(coloresDisponibles) && coloresDisponibles.length > 0) {
-          crearChips(document.getElementById("productoColores"), coloresDisponibles, (valor) => {
-            colorSeleccionado = valor;
-            mostrarFotosDelColor(valor);
-            refrescarTallas();
-            actualizarDisponibilidad();
-          });
+          crearChips(
+            document.getElementById("productoColores"),
+            coloresDisponibles,
+            (valor) => {
+              colorSeleccionado = valor;
+              mostrarFotosDelColor(valor);
+              refrescarTallas();
+              actualizarSelectorCantidad();
+              actualizarDisponibilidad();
+              actualizarEnlaceCompra();
+            }
+          );
+
           document.querySelectorAll("#productoColores .chip").forEach((chip) => {
-            if (stockDe(chip.textContent, null) <= 0) chip.classList.add("is-agotado");
+            if (stockDe(chip.textContent, null) <= 0) {
+              chip.classList.add("is-agotado");
+            }
           });
+
           grupoColores.hidden = false;
         }
 
@@ -782,11 +943,19 @@
 
         // Selector de talla
         const grupoTallas = document.getElementById("grupoTallas");
+
         if (Array.isArray(tallasDisponibles) && tallasDisponibles.length > 0) {
-          crearChips(document.getElementById("productoTallas"), ordenarTallas(tallasDisponibles), (valor) => {
-            tallaSeleccionada = valor;
-            actualizarDisponibilidad();
-          });
+          crearChips(
+            document.getElementById("productoTallas"),
+            ordenarTallas(tallasDisponibles),
+            (valor) => {
+              tallaSeleccionada = valor;
+              actualizarSelectorCantidad();
+              actualizarDisponibilidad();
+              actualizarEnlaceCompra();
+            }
+          );
+
           refrescarTallas();
           grupoTallas.hidden = false;
         }
@@ -794,11 +963,15 @@
         // Ficha de especificaciones
         document.getElementById("specSku").textContent = sku || "—";
         document.getElementById("specCategoria").textContent = categoria || "—";
+
         document.getElementById("specTallas").textContent =
           tallasDisponibles.length ? ordenarTallas(tallasDisponibles).join(", ") : "—";
+
         document.getElementById("specColores").textContent =
           coloresDisponibles.length ? coloresDisponibles.join(", ") : "—";
 
+        // Inicialización del selector de cantidad
+        actualizarSelectorCantidad();
         actualizarDisponibilidad();
         actualizarEnlaceCompra();
 
@@ -812,7 +985,6 @@
         const mensajeGeneral = "Hola, quiero más información sobre sus productos";
         const enlace = construirEnlaceWhatsapp(mensajeGeneral);
 
-       
         document.getElementById("footerWhatsappLink").href = enlace;
       }
 
@@ -820,6 +992,7 @@
         configurarEnlacesGenericosWhatsapp();
 
         const id = obtenerIdDesdeUrl();
+
         if (!id) {
           mostrarMensajeEstado("No se especificó ningún producto. Vuelve a la tienda y elige uno.");
           return;
@@ -827,11 +1000,13 @@
 
         try {
           const respuesta = await fetch(RUTA_JSON, { cache: "no-store" });
+
           if (!respuesta.ok) {
             throw new Error("No se pudo obtener productos.json (HTTP " + respuesta.status + ")");
           }
 
           const datos = await respuesta.json();
+
           if (!datos || !Array.isArray(datos.productos)) {
             throw new Error("El formato de productos.json no es válido: falta la clave 'productos'.");
           }
@@ -847,10 +1022,12 @@
             const inv = await window.Inventario.cargar(producto);
             if (inv) producto.stockPorColor = inv;
           }
+
           mostrarProducto(producto);
 
         } catch (error) {
           console.error("[producto.html] Error al cargar el producto:", error);
+
           mostrarMensajeEstado(
             "No se pudo cargar la información del producto en este momento. Por favor, actualiza la página o inténtalo más tarde."
           );
@@ -858,7 +1035,25 @@
       }
 
       document.getElementById("botonComprar").addEventListener("click", agregarAlCarrito);
+      campoCantidad.addEventListener("input", validarCantidad);
+
+      botonRestar.addEventListener("click", function () {
+        const actual = Number(campoCantidad.value) || 1;
+
+        if (actual > 1) {
+          campoCantidad.value = actual - 1;
+          validarCantidad();
+        }
+      });
+
+      botonSumar.addEventListener("click", function () {
+        const actual = Number(campoCantidad.value) || 0;
+        campoCantidad.value = actual + 1;
+        validarCantidad();
+      });
+
       document.addEventListener("DOMContentLoaded", iniciar);
+
     })();
   </script>
 

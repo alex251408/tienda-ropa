@@ -132,6 +132,25 @@
       "inventario": "POLO PIMA BASICO"
     },
     {
+  "id": "EJEMPLO-016",
+  "nombre": "Polo Básico Cuello V (Manga corta)",
+  "categoria": "polos",
+  "precio": 35.0,
+  "precioAnterior": null,
+  "descripcion": "Polo básico de cuello en V confeccionado en algodón pima, suave y cómodo para el uso diario. Su corte en V estiliza el cuello y combina con looks casuales o minimalistas.",
+  "tallasDisponibles": ["S", "M", "L", "XL"],
+  "coloresDisponibles": ["Negro", "Blanco", "Azul"],
+  "imagenPrincipal": "img/productos/cuello v-azul.jpg",
+  "imagenesPorColor": {
+    "Negro": "img/productos/cuello v-negro.jpg",
+    "Blanco": "img/productos/cuello v-blanco.jpg",
+    "Azul": "img/productos/cuello v-azul.jpg"
+  },
+  "imagenesAdicionales": [],
+  "stock": 0,
+  "inventario": "POLO PIMA CUELLO V"
+},
+    {
       "id": "SKU-004",
       "nombre": "Polo Boxy",
       "categoria": "polos",
@@ -599,6 +618,7 @@
         "Color ejemplo 1"
       ],
       "imagenPrincipal": "img/productos/placeholder-producto-3.jpg",
+      
       "imagenesAdicionales": [
         "img/productos/placeholder-producto-3-b.jpg"
       ],
@@ -607,21 +627,29 @@
     },
     {
       "id": "EJEMPLO-015",
-      "nombre": "Calzado",
-      "categoria": "Calzado",
+      "nombre": "Zapatillas",
+      "categoria": "Zapatillas",
       "precio": 250.0,
       "precioAnterior": null,
       "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
       "tallasDisponibles": [
-        "S",
-        "M",
-        "L",
-        "XL"
+        "39",
+        "40",
+        "41",
+        "42"
       ],
       "coloresDisponibles": [
-        "Color ejemplo 1"
+        "Azul"
       ],
-      "imagenPrincipal": "img/productos/placeholder-producto-3.jpg",
+      "imagenPrincipal": "img/productos/zapatilla-azul.jpg",
+      "imagenesPorColor": {
+       
+        "Azul": "img/productos/zapatilla-azul.jpg",
+        
+        "Blanco": "img/productos/zapatilla-blanco.jpg",
+        
+        "Negro": "img/productos.jpg"
+      },
       "imagenesAdicionales": [
         "img/productos/placeholder-producto-3-b.jpg"
       ],

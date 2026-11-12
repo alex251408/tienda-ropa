@@ -99,16 +99,19 @@
                 >
               </div>
 
-              <div class="form-group">
-                <label for="correo">Correo electrónico</label>
-                <input
-                  type="email"
-                  id="correo"
-                  name="correo"
-                  placeholder="correo@ejemplo.com"
-                  autocomplete="email"
-                >
-              </div>
+              
+<div class="form-group">
+  <label for="correo">Correo electrónico</label>
+  <input
+    type="email"
+    id="correo"
+    name="correo"
+    placeholder="correo@ejemplo.com"
+    autocomplete="email"
+    required
+  >
+</div>
+
 
             </div>
           </section>
@@ -253,6 +256,7 @@
                 id="comprobante"
                 name="comprobante"
                 accept="image/*,.pdf"
+                 required
               >
               <small>Podrás adjuntar una imagen o PDF de tu comprobante.</small>
             </div>
@@ -318,9 +322,11 @@
     <p>© 2026 Moda Fashion. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- JavaScript de la página de compra -->
-  <script src="checkout.js"></script>
+  <!-- Sistema general e inventario -->
+<script src="js/main.js"></script>
 
+<!-- JavaScript de la página de compra -->
+<script src="checkout.js"></script>
 </body>
 </html>
 ```

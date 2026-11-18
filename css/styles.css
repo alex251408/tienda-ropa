@@ -1188,3 +1188,72 @@ body {
 .checkout-remove:active {
   transform: scale(0.94);
 }
+
+/* =========================================================
+   CABECERA RESPONSIVE — CELULARES
+   ========================================================= */
+@media (max-width: 699px) {
+
+  .header-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "logo actions"
+      "search search";
+    align-items: center;
+    gap: 0.55rem 0.75rem;
+    padding: 0.45rem 0.75rem 0.65rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Logotipo */
+  .header-top > .logo {
+    grid-area: logo;
+    min-width: 0;
+  }
+
+  .header-top .logo-img {
+    height: 3.5rem;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  /* Favoritos y carrito */
+  .header-actions {
+    grid-area: actions;
+    display: flex;
+    align-items: center;
+    justify-self: end;
+    gap: 0.25rem;
+    flex-shrink: 0;
+  }
+
+  .header-actions .icon-link {
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  /* Buscador en una segunda fila */
+  .search-form {
+    grid-area: search;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+  }
+
+  .search-input {
+    min-width: 0;
+    width: 100%;
+    font-size: 0.88rem;
+  }
+
+  .search-input::placeholder {
+    font-size: 0.78rem;
+  }
+
+}

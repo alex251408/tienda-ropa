@@ -6,7 +6,7 @@
       "categoria": "polos",
       "precio": 50.0,
       "precioAnterior": null,
-      "descripcion": "Polo de ejemplo tipo henley, manga corta. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "descripcion": "Eleva tu estilo con este polo Henley de manga corta, confeccionado en algodón piqué tipo Lacoste, una tela reconocida por su textura característica y apariencia elegante.\n\nSu diseño incorpora cuello Henley con botones y corte Slim, que brinda una silueta moderna y estilizada. Una combinación perfecta de comodidad, frescura y distinción para el hombre que cuida cada detalle de su imagen.\n\nIdeal para combinar con jeans, pantalones chinos o bermudas, tanto para ocasiones casuales como para salidas donde quieras lucir bien vestido sin perder naturalidad.\n\nModa masculina con carácter, estilo y elegancia.",
       "tallasDisponibles": [
         "S",
         "M",
@@ -48,7 +48,7 @@
       "categoria": "polos",
       "precio": 55.0,
       "precioAnterior": 0.0,
-      "descripcion": "Polo de ejemplo tipo henley, manga larga. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "descripcion": "Descubre el equilibrio perfecto entre elegancia y estilo casual con este polo Henley de manga larga, confeccionado en algodón piqué tipo Lacoste, que destaca por su textura distintiva y acabado sofisticado.\n\nSu diseño presenta un cuello Henley con botones y corte Slim, que estiliza la silueta masculina y aporta una apariencia moderna y bien definida.\n\nIdeal para combinar con jeans o pantalones chinos, perfecto para salidas, reuniones informales y ocasiones en las que buscas proyectar una imagen elegante sin renunciar a la comodidad.\n\nUn clásico masculino reinventado para destacar con distinción.",
       "tallasDisponibles": [
         "S",
         "M",
@@ -135,16 +135,44 @@
   "id": "EJEMPLO-016",
   "nombre": "Polo Básico Cuello V (Manga corta)",
   "categoria": "polos",
-  "precio": 35.0,
+  "precio": 40.0,
   "precioAnterior": null,
   "descripcion": "Polo básico de cuello en V confeccionado en algodón pima, suave y cómodo para el uso diario. Su corte en V estiliza el cuello y combina con looks casuales o minimalistas.",
   "tallasDisponibles": ["S", "M", "L", "XL"],
-  "coloresDisponibles": ["Negro", "Blanco", "Azul"],
+  "coloresDisponibles": ["Negro", "Blanco", "Azul", "Verde", "Guinda", "Melange", "Beige", "Azul marino"],
   "imagenPrincipal": "img/productos/cuello v-azul.jpg",
   "imagenesPorColor": {
     "Negro": "img/productos/cuello v-negro.jpg",
     "Blanco": "img/productos/cuello v-blanco.jpg",
-    "Azul": "img/productos/cuello v-azul.jpg"
+    "Azul": "img/productos/cuello v-azul.jpg",
+    "Verde": "img/productos/cuello v-verde.jpg",
+    "Guinda": "img/productos/cuello v-guinda.jpg",
+    "Melange": "img/productos/cuello v-melange.jpg",
+    "Beige": "img/productos/cuello v-beige.jpg",
+    "Azul marino": "img/productos/cuello v-azul marino.jpg"
+  },
+  "imagenesAdicionales": [],
+  "stock": 0,
+  "inventario": "POLO PIMA CUELLO V"
+},
+ {
+  "id": "EJEMPLO-017",
+  "nombre": "Polo Básico Cuello V (Manga larga)",
+  "categoria": "polos",
+  "precio": 45.0,
+  "precioAnterior": null,
+  "descripcion": "Polo básico de cuello en V confeccionado en algodón pima, suave y cómodo para el uso diario. Su corte en V estiliza el cuello y combina con looks casuales o minimalistas.",
+  "tallasDisponibles": ["S", "M", "L", "XL"],
+  "coloresDisponibles": ["Negro", "Blanco", "Verde", "Guinda", "Melange", "Beige", "Azul marino"],
+  "imagenPrincipal": "img/productos/cuello v larga-negro.jpg",
+  "imagenesPorColor": {
+"Negro": "img/productos/cuello v larga-negro.jpg",
+"Blanco": "img/productos/cuello v larga-blanco.jpg",
+"Verde": "img/productos/cuello v larga-verde.jpg",
+"Guinda": "img/productos/cuello v larga-guinda.jpg",
+"Melange": "img/productos/cuello v larga-melange.jpg",
+"Beige": "img/productos/cuello v larga-beige.jpg",
+"Azul marino": "img/productos/cuello v larga-azul marino.jpg"
   },
   "imagenesAdicionales": [],
   "stock": 0,
@@ -156,7 +184,7 @@
       "categoria": "polos",
       "precio": 45.0,
       "precioAnterior": null,
-      "descripcion": "Polo de ejemplo, corte boxy. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "descripcion": "Dale personalidad a tu outfit con este polo Boxy, una prenda inspirada en las tendencias actuales de la moda urbana masculina. Su corte de silueta amplia y estructura relajada aporta una apariencia moderna, cómoda y con carácter.\n\nSu diseño permite crear combinaciones versátiles con jeans, pantalones cargo, joggers o bermudas, logrando un look casual con identidad propia.\n\nIdeal para quienes buscan salir de lo convencional y destacar con un estilo contemporáneo.\n\nMás actitud, más estilo, más personalidad..",
       "tallasDisponibles": [
         "S",
         "M",
@@ -198,7 +226,7 @@
       "categoria": "polos",
       "precio": 45.0,
       "precioAnterior": null,
-      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "descripcion": "Expresa tu estilo con este polo Oversize, diseñado para quienes buscan comodidad y una apariencia moderna. Su silueta holgada ofrece mayor libertad de movimiento y un look relajado que destaca por su personalidad.\n\nInspirado en las tendencias del streetwear, es una prenda versátil que puedes combinar con jeans, pantalones cargo, joggers o bermudas para crear outfits urbanos con carácter.\n\nIdeal para el día a día y para quienes prefieren un estilo auténtico, cómodo y fuera de lo convencional.\n\nLibertad de movimiento. Estilo sin límites.",
       "tallasDisponibles": [
         "S",
         "M",
@@ -242,7 +270,7 @@
       "categoria": "polos",
       "precio": 55.0,
       "precioAnterior": null,
-      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "descripcion": "Elegancia y estilo se unen en este polo camisero de manga corta, confeccionado en algodón piqué tipo Lacoste, una tela que destaca por su textura característica y su apariencia sofisticada.\n\nSu diseño con cuello camisero, abertura frontal con botones y corte Slim ofrece una silueta moderna que realza el estilo masculino. Una prenda ideal para quienes buscan una imagen más refinada sin perder la comodidad de un look casual.\n\nCombínalo con jeans, pantalones chinos o bermudas para conseguir un estilo versátil, perfecto para salidas, reuniones y ocasiones especiales.\n\nElegancia casual para destacar en cada ocasión.",
       "tallasDisponibles": [
         "L",
         "M",
@@ -288,7 +316,7 @@
       "categoria": "Conjuntos",
       "precio": 85.0,
       "precioAnterior": null,
-      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "descripcion": "Comodidad y estilo se combinan en este conjunto canguro, una propuesta moderna para el hombre que busca un look deportivo y urbano sin renunciar a una buena apariencia.\n\nSu diseño incluye polera con capucha y bolsillo frontal tipo canguro, acompañada de un pantalón a juego que crea una combinación armoniosa y práctica.\n\nIdeal para salidas casuales, paseos y momentos de descanso. Puedes llevarlo como conjunto completo o combinar sus prendas por separado para crear diferentes outfits.\n\nComodidad que se nota. Estilo que destaca.",
       "tallasDisponibles": [
         "S",
         "M",
@@ -335,7 +363,7 @@
       "categoria": "pantalones",
       "precio": 99.0,
       "precioAnterior": null,
-      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "descripcion": "Combina funcionalidad y estilo con este pantalón Cargo Fit, diseñado para el hombre que busca una apariencia moderna con un toque urbano. Su diseño incorpora bolsillos laterales característicos del estilo cargo, aportando practicidad y personalidad a tu outfit.\n\nSu corte ofrece una silueta estilizada y versátil, ideal para combinar con polos básicos, oversize, camisetas o zapatillas urbanas.\n\nPerfecto para el día a día, salidas y ocasiones casuales en las que quieres destacar con un look actual.\n\nActitud urbana, funcionalidad y estilo en cada detalle.",
       "tallasDisponibles": [
         "30",
         "32",
@@ -381,7 +409,7 @@
       "categoria": "pantalones",
       "precio": 80.0,
       "precioAnterior": null,
-      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "descripcion": "Define tu estilo con este pantalón Skinny, diseñado para quienes prefieren una silueta ajustada y una apariencia moderna. Su corte ceñido acompaña la forma de las piernas, creando un look estilizado y contemporáneo.\n\nSu diseño versátil permite combinarlo fácilmente con polos básicos, camisetas, polos camisero o prendas oversize, adaptándose a diferentes estilos y ocasiones.\n\nIdeal para salidas, reuniones casuales y para quienes buscan destacar con una imagen actual y bien definida.\n\nUn corte que estiliza. Un estilo que marca la diferencia..",
       "tallasDisponibles": [
         "28",
         "30",
@@ -397,10 +425,10 @@
       ],
       "imagenPrincipal": "img/productos/skinny.jpg",
       "imagenesPorColor": {
-       
-        
-       
-
+        "Guinda": "img/productos/skini-guinda.jpg",
+        "Plomo plata": "img/productos/skini-plomo.jpg",
+        "Verde": "img/productos/skini-verde.jpg",
+        "Beige": "img/productos/skini-beige.jpg",
         "Blanco": "img/productos/skini-blanco.jpg"
       },
       "imagenesAdicionales": [
@@ -416,7 +444,7 @@
       "categoria": "pantalones",
       "precio": 70.0,
       "precioAnterior": null,
-      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "descripcion": "Descubre la combinación perfecta de comodidad y estilo con este pantalón Jogger, una prenda imprescindible para quienes buscan un look moderno y relajado. Su diseño de inspiración deportiva presenta una silueta casual que aporta libertad de movimiento y un acabado urbano.\n\nSu estilo versátil permite combinarlo con polos básicos, oversize, camisetas o poleras, creando outfits cómodos y con personalidad.\n\nIdeal para el día a día, paseos y momentos de descanso sin dejar de lucir bien.\n\nComodidad en cada paso. Estilo en cada momento.",
       "tallasDisponibles": [
         "30",
         "32",
@@ -471,7 +499,7 @@
       "categoria": "Conjuntos",
       "precio": 80.0,
       "precioAnterior": null,
-      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "descripcion": "Conjunto Raglan , Estilo Deportivo Masculino\n\nLuce un estilo moderno y deportivo con este conjunto Raglan, una propuesta que combina comodidad, diseño y personalidad. Su característica principal es el diseño de mangas raglán, que aporta un acabado distintivo y un toque deportivo a la prenda.\n\nCompuesto por dos piezas a juego, ofrece una apariencia coordinada y versátil, ideal para quienes buscan vestir cómodamente sin descuidar su imagen.\n\nPerfecto para salidas casuales, paseos y momentos de descanso. También puedes combinar cada pieza por separado para crear diferentes outfits.\n\nUn estilo deportivo con personalidad propia.",
       "tallasDisponibles": [
         "S",
         "M",
@@ -518,7 +546,7 @@
       "categoria": "Conjuntos",
       "precio": 105.0,
       "precioAnterior": null,
-      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "descripcion": "Conjunto Tulum , Elegancia Casual Masculina\n\nDale un aire fresco y sofisticado a tu estilo con el conjunto Tulum, una propuesta diseñada para el hombre que busca destacar con una apariencia relajada y moderna.\n\nSu diseño de dos piezas ofrece una combinación armoniosa que permite lucir un outfit completo sin complicaciones. Ideal para quienes prefieren un estilo casual con un toque de elegancia, perfecto para paseos, salidas y encuentros informales.\n\nTambién puedes combinar sus prendas por separado para crear diferentes looks según la ocasión.\n\nFrescura, comodidad y distinción en un solo conjunto.",
       "tallasDisponibles": [
         "S",
         "M",
@@ -563,7 +591,7 @@
       "categoria": "Poleras",
       "precio": 80.0,
       "precioAnterior": null,
-      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "descripcion": "Completa tu look con esta polera masculina, una prenda versátil que combina comodidad y estilo contemporáneo. Su diseño ofrece una apariencia moderna y relajada, ideal para quienes buscan vestir con personalidad en cualquier momento.\n\nPerfecta para combinar con jeans, pantalones jogger o cargo, creando outfits urbanos y casuales con un toque de distinción.\n\nUna excelente opción para los días frescos, salidas y actividades cotidianas.\n\nComodidad y estilo que se adaptan a tu ritmo.",
       "inventario": "POLERA", 
       "tallasDisponibles": [
         "S",
@@ -607,7 +635,7 @@
       "categoria": "Casacas",
       "precio": 0.0,
       "precioAnterior": null,
-      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
+      "descripcion": "Proyecta una imagen moderna y sofisticada con esta casaca masculina, una prenda diseñada para complementar tu estilo y aportar carácter a cualquier outfit.\n\nSu diseño versátil permite combinarla fácilmente con polos, camisetas, poleras y diferentes tipos de pantalones, creando looks casuales y urbanos con personalidad.\n\nIdeal para los días frescos, salidas y ocasiones en las que buscas completar tu vestimenta con un toque de estilo.\n\nEl complemento perfecto para destacar en cada temporada.",
       "tallasDisponibles": [
         "S",
         "M",
@@ -626,35 +654,22 @@
       "sku": "SKU-014"
     },
     {
-      "id": "EJEMPLO-015",
-      "nombre": "Zapatillas",
-      "categoria": "Zapatillas",
-      "precio": 250.0,
-      "precioAnterior": null,
-      "descripcion": "Polo de ejemplo, corte básico. Texto descriptivo de muestra: aquí irá el detalle real del producto (material, corte, cuidados, etc.).",
-      "tallasDisponibles": [
-        "39",
-        "40",
-        "41",
-        "42"
-      ],
-      "coloresDisponibles": [
-        "Azul"
-      ],
-      "imagenPrincipal": "img/productos/zapatilla-azul.jpg",
-      "imagenesPorColor": {
-       
-        "Azul": "img/productos/zapatilla-azul.jpg",
-        
-        "Blanco": "img/productos/zapatilla-blanco.jpg",
-        
-        "Negro": "img/productos.jpg"
-      },
-      "imagenesAdicionales": [
-        "img/productos/placeholder-producto-3-b.jpg"
-      ],
-      "stock": 0,
-      "sku": "SKU-015"
-    }
+  "id": "SKU-015",
+  "nombre": "Zapatillas",
+  "categoria": "Zapatillas",
+  "precio": 250.0,
+  "precioAnterior": null,
+  "descripcion": "Completa tu outfit con unas zapatillas que combinan diseño moderno, comodidad y versatilidad. Su estilo casual urbano las convierte en el complemento ideal para el hombre que busca lucir bien en cualquier ocasión.\n\nFáciles de combinar con jeans, joggers, pantalones cargo, bermudas y conjuntos deportivos, aportan un toque actual a cada look.\n\nPerfectas para el uso diario, paseos y salidas casuales.\n\nCada paso con estilo. Cada look con personalidad.",
+  "tallasDisponibles": ["39", "40", "41", "42"],
+  "coloresDisponibles": ["Azul", "Blanco"],
+  "imagenPrincipal": "img/productos/zapatilla-azul.jpg",
+  "imagenesPorColor": {
+    "Azul": "img/productos/zapatilla-azul.jpg",
+    "Blanco": "img/productos/zapatilla-blanco.jpg"
+  },
+  "imagenesAdicionales": [],
+  "stock": 0,
+  "inventario": "ZAPATILLAS"
+}
   ]
 }

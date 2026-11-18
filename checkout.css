@@ -752,7 +752,7 @@
 }
 
 .summary-total strong {
-  color: #5424ad;
+  color: #211e25;
   font-size: 27px;
   font-weight: 800;
 }
@@ -760,7 +760,7 @@
 .checkout-button {
   min-height: 55px;
   border-radius: 8px;
-  background: #5424ad;
+  background: #2a2631;
   font-size: 14px;
   letter-spacing: 0.5px;
   transition: background 0.2s, transform 0.2s;
@@ -853,7 +853,7 @@
 .payment-panel-content > p {
   margin: 0 0 19px;
   padding: 0;
-  color: #5d6879;
+  color: #191b1f;
   font-size: 13px;
   line-height: 1.6;
 }
@@ -1077,4 +1077,67 @@ padding: 0 4px;
   font-size: 12px !important;
   font-weight: 600;
   line-height: 1.4;
+}
+
+
+/* Contenedor general de imágenes de pago */
+.payment-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  width: 100%;
+}
+
+.payment-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* Tamaño independiente de Yape */
+.payment-image-yape img {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+/* Tamaño independiente de Plin */
+.payment-image-plin img {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+/* Tamaño independiente de BCP */
+.payment-image-bcp img {
+  max-width: 440px;
+  max-height: 500px;
+}
+.payment-bank-details {
+  max-width: 440px;
+  margin: 20px auto;
+  padding: 22px;
+  background: #f7f5f1;
+  border: 1px solid #e2d9ca;
+  border-radius: 10px;
+}
+
+.payment-bank-details .payment-data-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5dfd5;
+}
+
+.payment-bank-details .payment-data-row:last-child {
+  border-bottom: none;
+}
+
+.payment-bank-details span {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  overflow-wrap: anywhere;
 }

@@ -462,6 +462,7 @@
 
           <div class="product-hero-actions">
             <button id="botonComprar" type="button" class="buy-button">Agregar 🛒</button>
+            <span id="favoritoContenedor"></span>
           </div>
         </div>
       </section>
@@ -894,6 +895,17 @@
         categoriaEl.hidden = !categoria;
 
         document.getElementById("productoNombre").textContent = nombre;
+
+        // Favoritos: corazón sobre la foto y botón con texto junto a "Agregar"
+        if (window.Favoritos) {
+          const marco = document.querySelector(".product-media-frame");
+          const corazon = window.Favoritos.crearBoton(producto.id);
+          corazon.style.top = "0.8rem"; corazon.style.bottom = "auto";
+          marco.appendChild(corazon);
+          const cont = document.getElementById("favoritoContenedor");
+          cont.innerHTML = "";
+          cont.appendChild(window.Favoritos.crearBoton(producto.id, true));
+        }
         document.getElementById("productoPrecio").textContent = formatearPrecio(precio);
         document.getElementById("productoDescripcionCorta").textContent = descripcion;
 

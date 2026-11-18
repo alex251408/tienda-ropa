@@ -416,3 +416,111 @@
        });
      });
    })();
+
+
+/* =========================================================
+   FAVORITOS (se guardan en el navegador del cliente)
+   - window.Favoritos.crearBoton(id)  -> corazón ♡/♥ para una tarjeta o foto
+   - window.Favoritos.crearBoton(id, true) -> botón con texto "Agregar a favoritos"
+   - El corazón del encabezado muestra cuántos favoritos hay y abre la lista.
+   ========================================================= */
+(function () {
+  "use strict";
+
+  var CLAVE = "favoritos_matteo_salvatore";
+
+  function leer() {
+    try {
+      var d = JSON.parse(localStorage.getItem(CLAVE) || "[]");
+      return Array.isArray(d) ? d : [];
+    } catch (e) { return []; }
+  }
+  function guardar(l) { try { localStorage.setItem(CLAVE, JSON.stringify(l)); } catch (e) {} }
+  function tiene(id) { return leer().indexOf(String(id)) !== -1; }
+
+  /** Agrega o quita. Devuelve true si quedó como favorito. */
+  function alternar(id) {
+    id = String(id);
+    var l = leer(), i = l.indexOf(id);
+    if (i === -1) l.push(id); else l.splice(i, 1);
+    guardar(l);
+    refrescar();
+    return i === -1;
+  }
+
+  function pintarBoton(b) {
+    var activo = tiene(b.getAttribute("data-fav"));
+    b.classList.toggle("is-active", activo);
+    b.setAttribute("aria-pressed", activo ? "true" : "false");
+    b.setAttribute("aria-label", activo ? "Quitar de favoritos" : "Agregar a favoritos");
+    var icono = b.querySelector(".fav-icon");
+    if (icono) icono.textContent = activo ? "♥" : "♡";
+    var texto = b.querySelector(".fav-texto");
+    if (texto) texto.textContent = activo ? "En tus favoritos" : "Agregar a favoritos";
+  }
+
+  function refrescar() {
+    document.querySelectorAll("[data-fav]").forEach(pintarBoton);
+    var n = leer().length;
+    document.querySelectorAll('a[aria-label="Favoritos"]').forEach(function (a) {
+      a.href = "productos.html?favoritos=1";
+      a.textContent = n > 0 ? "♥" : "♡";
+      a.classList.toggle("fav-lleno", n > 0);
+      if (n > 0) {
+        var c = document.createElement("span");
+        c.className = "cart-count fav-count";
+        c.textContent = n > 99 ? "99+" : String(n);
+        a.appendChild(c);
+      }
+    });
+  }
+
+  function crearBoton(id, conTexto) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.setAttribute("data-fav", String(id));
+    b.className = conTexto ? "fav-btn fav-btn-texto" : "fav-btn";
+    var i = document.createElement("span");
+    i.className = "fav-icon"; i.setAttribute("aria-hidden", "true");
+    b.appendChild(i);
+    if (conTexto) {
+      var t = document.createElement("span");
+      t.className = "fav-texto";
+      b.appendChild(t);
+    }
+    b.addEventListener("click", function (e) {
+      e.preventDefault();      // dentro de una tarjeta no debe abrir el producto
+      e.stopPropagation();
+      var ahora = alternar(id);
+      if (window.Carrito && window.Carrito.aviso) {
+        window.Carrito.aviso(ahora ? "Agregado a favoritos ♥" : "Quitado de favoritos");
+      }
+    });
+    pintarBoton(b);
+    return b;
+  }
+
+  function estilos() {
+    var css = document.createElement("style");
+    css.textContent =
+      "a[aria-label='Favoritos']{position:relative}" +
+      "a[aria-label='Favoritos'].fav-lleno{color:#D6553B}" +
+      ".fav-btn{position:absolute;right:.5rem;bottom:.5rem;z-index:5;width:36px;height:36px;border:none;" +
+      "border-radius:50%;background:rgba(255,255,255,.94);box-shadow:0 2px 8px rgba(36,21,40,.2);" +
+      "font-size:1.25rem;line-height:1;color:#6b5d70;cursor:pointer;display:flex;align-items:center;" +
+      "justify-content:center;padding:0;transition:transform .2s}" +
+      ".fav-btn:hover{transform:scale(1.1)}" +
+      ".fav-btn.is-active{color:#D6553B}" +
+      ".fav-btn-texto{position:static;width:auto;height:auto;border-radius:999px;padding:.85rem 1.2rem;" +
+      "background:#fff;border:1.5px solid #D6553B;color:#D6553B;box-shadow:none;gap:.5rem;font:inherit;" +
+      "font-weight:700;font-size:.9rem}" +
+      ".fav-btn-texto .fav-icon{font-size:1.15rem}" +
+      ".fav-btn-texto.is-active{background:#D6553B;color:#fff}";
+    document.head.appendChild(css);
+  }
+
+  window.Favoritos = { leer: leer, tiene: tiene, alternar: alternar, crearBoton: crearBoton, refrescar: refrescar };
+
+  window.addEventListener("storage", refrescar);   // si cambia en otra pestaña
+  document.addEventListener("DOMContentLoaded", function () { estilos(); refrescar(); });
+})();

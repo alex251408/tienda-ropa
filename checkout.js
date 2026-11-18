@@ -403,87 +403,66 @@ contenedor.appendChild(articulo);
 
     if (!detalles || opciones.length === 0) return;
 
-    const informacionPagos = {
-      yape: `
-        <div class="payment-brand payment-brand-yape">
-          <img src="img/pagos/yape-log.jpg" alt="Yape">
-        </div>
-        <div class="payment-panel-content">
-          <h2>Pago mediante Yape</h2>
-          <p>Escanea nuestro código QR desde tu aplicación Yape.</p>
-          <div class="payment-qr-placeholder">
-            Aquí colocaremos tu código QR de Yape.
-          </div>
-          <div class="payment-data-row">
-            <strong>Número de celular:</strong>
-            <span>Pendiente de configurar</span>
-          </div>
-          <div class="payment-data-row">
-            <strong>Titular:</strong>
-            <span>Pendiente de configurar</span>
-          </div>
-          <div class="payment-reminder">
-            <strong>ⓘ Información importante</strong>
-            <p>Luego de realizar el pago, adjunta tu comprobante en la sección correspondiente.</p>
-          </div>
-        </div>
-      `,
+    
+const informacionPagos = {
+  yape: `
+    <div class="payment-brand payment-brand-yape">
+      <img src="img/pagos/yape-log.jpg" alt="Yape">
+    </div>
+    <div class="payment-panel-content">
+      <h2>Pago mediante Yape</h2>
+      <p>Escanea nuestro código QR desde tu aplicación Yape.</p>
+     <div class="payment-image payment-image-yape">
+       <img src="img/pagos/qr-yape.jpg" alt="Código QR de Yape">
+      </div>
+      <div class="payment-reminder">
+        <strong>ⓘ Información importante</strong>
+        <p>Luego de realizar el pago, adjunta tu comprobante en la sección correspondiente.</p>
+      </div>
+    </div>
+  `,
 
-      plin: `
-        <div class="payment-brand payment-brand-plin">
-          <img src="img/pagos/plim-log.jpg" alt="Plin">
-        </div>
-        <div class="payment-panel-content">
-          <h2>Pago mediante Plin</h2>
-          <p>Escanea nuestro código QR desde tu aplicación Plin.</p>
-          <div class="payment-qr-placeholder">
-            Aquí colocaremos tu código QR de Plin.
-          </div>
-          <div class="payment-data-row">
-            <strong>Número de celular:</strong>
-            <span>Pendiente de configurar</span>
-          </div>
-          <div class="payment-data-row">
-            <strong>Titular:</strong>
-            <span>Pendiente de configurar</span>
-          </div>
-          <div class="payment-reminder">
-            <strong>ⓘ Información importante</strong>
-            <p>Luego de realizar el pago, adjunta tu comprobante en la sección correspondiente.</p>
-          </div>
-        </div>
-      `,
+  plin: `
+    <div class="payment-brand payment-brand-plin">
+      <img src="img/pagos/plim-log.jpg" alt="Plin">
+    </div>
+    <div class="payment-panel-content">
+      <h2>Pago mediante Plin</h2>
+      <p>Escanea nuestro código QR desde tu aplicación Plin.</p>
+     <div class="payment-image payment-image-plin">
+        <img src="img/pagos/qr-plin.jpg" alt="Código QR de Plin">
+      </div>
+      <div class="payment-reminder">
+        <strong>ⓘ Información importante</strong>
+        <p>Luego de realizar el pago, adjunta tu comprobante en la sección correspondiente.</p>
+      </div>
+    </div>
+  `,
 
-      transferencia: `
-        <div class="payment-brand payment-brand-bcp">
-          <img src="img/pagos/bcp-log.jpg" alt="BCP">
-        </div>
-        <div class="payment-panel-content">
-          <h2>Transferencia bancaria BCP</h2>
-          <p>Realiza tu depósito o transferencia utilizando estos datos:</p>
-          <div class="payment-data-row">
-            <strong>Banco:</strong>
-            <span>BCP</span>
-          </div>
-          <div class="payment-data-row">
-            <strong>Titular:</strong>
-            <span>Pendiente de configurar</span>
-          </div>
-          <div class="payment-data-row">
-            <strong>N.º de cuenta:</strong>
-            <span>Pendiente de configurar</span>
-          </div>
-          <div class="payment-data-row">
-            <strong>CCI:</strong>
-            <span>Pendiente de configurar</span>
-          </div>
-          <div class="payment-reminder">
-            <strong>ⓘ Información importante</strong>
-            <p>Luego de realizar el pago, adjunta tu comprobante en la sección correspondiente.</p>
-          </div>
-        </div>
-      `
-    };
+visa: `
+  <div class="payment-brand payment-brand-visa">
+    <span class="visa-wordmark">VISA</span>
+  </div>
+
+  <div class="payment-panel-content">
+    <h2>Pago con tarjeta Visa</h2>
+    <p>
+      Próximamente podrás pagar tus compras con tarjetas
+      Visa de débito o crédito.
+    </p>
+
+    <div class="payment-coming-soon">
+      <strong>Pago con tarjeta próximamente</strong>
+      <p>
+        Estamos preparando una integración segura
+        para que puedas realizar tus pagos directamente
+        desde nuestra tienda.
+      </p>
+    </div>
+  </div>
+`,
+
+};
 
     opciones.forEach((opcion) => {
       opcion.addEventListener("change", () => {

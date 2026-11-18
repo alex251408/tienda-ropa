@@ -112,6 +112,8 @@
       wrapper.classList.add("is-empty");
     }
 
+    if (window.Favoritos) wrapper.appendChild(window.Favoritos.crearBoton(id));
+
     if (agotado) {
       wrapper.appendChild(crearElemento("span", "product-badge product-badge-soldout", "Agotado"));
     } else if (descuento > 0) {
@@ -217,9 +219,10 @@
     }
   }
 
-  function actualizarCabecera(cantidad, categoria, buscar) {
+  function actualizarCabecera(cantidad, categoria, buscar, favoritos) {
     let titulo = "Todos los productos";
-    if (buscar) titulo = "Resultados para “" + buscar + "”";
+    if (favoritos) titulo = "Mis favoritos ♥";
+    else if (buscar) titulo = "Resultados para “" + buscar + "”";
     else if (categoria) titulo = mayusculaInicial(categoria);
 
     const tituloEl = document.getElementById("catalogoTitulo");
@@ -277,15 +280,21 @@
       const params = new URLSearchParams(window.location.search);
       const categoria = (params.get("categoria") || "").trim();
       const buscar = (params.get("buscar") || "").trim();
+      const favoritos = params.get("favoritos") === "1";
 
       prepararBuscador(buscar);
       construirFiltros(todos, categoria);
 
-      const lista = filtrar(todos, categoria, buscar);
-      actualizarCabecera(lista.length, categoria, buscar);
+      let lista = filtrar(todos, categoria, buscar);
+      if (favoritos) {
+        lista = lista.filter(function (p) { return window.Favoritos && window.Favoritos.tiene(p.id); });
+      }
+      actualizarCabecera(lista.length, categoria, buscar, favoritos);
 
       if (lista.length > 0) {
         renderizarProductos(lista, grid);
+      } else if (favoritos) {
+        mostrarMensaje(grid, "Todavía no tienes favoritos. Toca el corazón ♡ de un producto para guardarlo aquí.", true);
       } else if (buscar) {
         mostrarMensaje(grid, "No encontramos productos para “" + buscar + "”. Prueba con otra palabra.", true);
       } else if (categoria) {

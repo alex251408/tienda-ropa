@@ -1392,17 +1392,12 @@ body {
   padding-top: 0.35rem;
 }
 
+/* Botón en computadora */
 .hero-content .btn {
   align-self: start;
   margin-top: 1.8rem;
   padding: 0.45rem 0.85rem;
   font-size: 0.76rem;
-}
-
-/* Reducir ligeramente el botón en computadora */
-.hero-content .btn {
-  padding: 0.7rem 1.25rem;
-  font-size: 0.84rem;
 }
 
 /* Ajustes para celulares */
@@ -1412,7 +1407,8 @@ body {
   }
 
   .hero-content .btn {
-    padding: 0.42rem 0.72rem;
-    font-size: 0.68rem;
+    margin-top: 1.8rem;
+    padding: 0.38rem 0.65rem;
+    font-size: 0.65rem;
   }
 }

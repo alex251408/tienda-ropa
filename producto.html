@@ -345,6 +345,71 @@
       .buy-button { flex: 1; }
       .description-grid { grid-template-columns: 1.6fr 1fr; align-items: start; }
     }
+
+/* ==========================================
+   PRODUCTO EN TELÉFONOS: FOTO + COLORES
+========================================== */
+
+@media (max-width: 699px) {
+
+  .product-hero {
+    grid-template-columns: minmax(0, 1fr) 82px;
+    column-gap: 12px;
+    row-gap: 1.3rem;
+    align-items: start;
+  }
+
+  /* Fotografía a la izquierda */
+  .product-hero-media {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  .product-media-frame {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Permite distribuir los elementos de información
+     dentro de la cuadrícula principal */
+  .product-hero-info {
+    display: contents;
+  }
+
+  .product-hero-info > * {
+    grid-column: 1 / -1;
+  }
+
+  /* Selector de colores a la derecha de la fotografía */
+  .product-hero-info > #grupoColores {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    min-width: 0;
+    margin-top: 0;
+  }
+
+  /* Colores en columna para aprovechar el espacio */
+  #grupoColores .chip-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  #grupoColores .chip {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 7px 3px;
+    font-size: 0.70rem;
+    line-height: 1.2;
+    text-align: center;
+    white-space: normal;
+  }
+
+}
+
   </style>
 </head>
 

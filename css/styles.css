@@ -1378,3 +1378,34 @@ body {
   }
 
 }
+/* =========================================================
+   AJUSTE FINAL DEL BANNER PRINCIPAL
+   ========================================================= */
+
+/* Colocar el texto en la parte superior izquierda */
+.hero-banner {
+  align-items: start;
+}
+
+.hero-content {
+  align-self: start;
+  padding-top: 0.35rem;
+}
+
+/* Reducir ligeramente el botón en computadora */
+.hero-content .btn {
+  padding: 0.7rem 1.25rem;
+  font-size: 0.84rem;
+}
+
+/* Ajustes para celulares */
+@media (max-width: 699px) {
+  .hero-content {
+    padding-top: 0.2rem;
+  }
+
+  .hero-content .btn {
+    padding: 0.42rem 0.72rem;
+    font-size: 0.68rem;
+  }
+}

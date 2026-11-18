@@ -1407,8 +1407,8 @@ body {
   }
 
   .hero-content .btn {
-    margin-top: 2.5rem !important;
-    padding: 0.38rem 0.65rem;
-    font-size: 0.65rem;
-  }
+  position: relative;
+  top: 15px;
+  padding: 0.38rem 0.65rem;
+  font-size: 0.65rem;
 }

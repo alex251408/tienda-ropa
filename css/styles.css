@@ -1338,3 +1338,43 @@ body {
     margin-top: 1.5rem;
   }
 }
+
+/* =========================================================
+   BANNER PRINCIPAL - AJUSTE PARA CELULARES
+   ========================================================= */
+
+@media (max-width: 699px) {
+
+  .hero-banner {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding: 1rem 1rem 2rem;
+    background-position: center, center, center, center, center;
+  }
+
+  .hero-content {
+    max-width: 58%;
+  }
+
+  .hero-tag {
+    font-size: 0.58rem;
+    padding: 0.2rem 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.2rem, 5vw, 1.65rem);
+    line-height: 1.12;
+    margin-bottom: 0.55rem;
+  }
+
+  .hero-content .btn {
+    padding: 0.48rem 0.85rem;
+    font-size: 0.72rem;
+    min-height: 0;
+  }
+
+}

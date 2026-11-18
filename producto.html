@@ -346,69 +346,58 @@
       .description-grid { grid-template-columns: 1.6fr 1fr; align-items: start; }
     }
 
+
 /* ==========================================
-   PRODUCTO EN TELÉFONOS: FOTO + COLORES
+   PRODUCTO EN TELÉFONOS: FOTO Y COLORES
 ========================================== */
 
 @media (max-width: 699px) {
 
   .product-hero {
-    grid-template-columns: minmax(0, 1fr) 82px;
-    column-gap: 12px;
-    row-gap: 1.3rem;
-    align-items: start;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.3rem;
   }
 
-  /* Fotografía a la izquierda */
   .product-hero-media {
-    grid-column: 1;
-    grid-row: 1;
-    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 
   .product-media-frame {
-    max-width: none;
+    max-width: 420px;
     width: 100%;
-    margin: 0;
+    margin: 0 auto;
   }
 
-  /* Permite distribuir los elementos de información
-     dentro de la cuadrícula principal */
   .product-hero-info {
-    display: contents;
-  }
-
-  .product-hero-info > * {
-    grid-column: 1 / -1;
-  }
-
-  /* Selector de colores a la derecha de la fotografía */
-  .product-hero-info > #grupoColores {
-    grid-column: 2;
-    grid-row: 1;
-    align-self: start;
-    min-width: 0;
-    margin-top: 0;
-  }
-
-  /* Colores en columna para aprovechar el espacio */
-  #grupoColores .chip-group {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 1rem;
+  }
+
+  /* Colores debajo de la fotografía */
+  #grupoColores {
+    order: 1;
+    margin-top: -0.5rem;
+  }
+
+  #grupoColores .chip-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   #grupoColores .chip {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 7px 3px;
-    font-size: 0.70rem;
-    line-height: 1.2;
-    text-align: center;
-    white-space: normal;
+    width: auto;
+    padding: 7px 12px;
+    font-size: 0.78rem;
   }
 
 }
+
 
   </style>
 </head>

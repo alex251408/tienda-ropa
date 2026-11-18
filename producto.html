@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -346,58 +347,47 @@
       .description-grid { grid-template-columns: 1.6fr 1fr; align-items: start; }
     }
 
+    /* ==========================================
+       PRODUCTO EN TELÉFONOS: FOTO Y COLORES
+    ========================================== */
 
-/* ==========================================
-   PRODUCTO EN TELÉFONOS: FOTO Y COLORES
-========================================== */
+    @media (max-width: 699px) {
 
-@media (max-width: 699px) {
+      .product-hero {
+        grid-template-columns: 1fr;
+        gap: 1.3rem;
+      }
 
-  .product-hero {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.3rem;
-  }
+      .product-hero-media {
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+      }
 
-  .product-hero-media {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
+      .product-media-frame {
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+      }
 
-  .product-media-frame {
-    max-width: 420px;
-    width: 100%;
-    margin: 0 auto;
-  }
+      #grupoColores {
+        margin-top: 0.8rem;
+      }
 
-  .product-hero-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
+      #grupoColores .chip-group {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
 
-  /* Colores debajo de la fotografía */
-  #grupoColores {
-    order: 1;
-    margin-top: -0.5rem;
-  }
+      #grupoColores .chip {
+        width: auto;
+        padding: 7px 12px;
+        font-size: 0.78rem;
+      }
 
-  #grupoColores .chip-group {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  #grupoColores .chip {
-    width: auto;
-    padding: 7px 12px;
-    font-size: 0.78rem;
-  }
-
-}
-
+    }
 
   </style>
 </head>
@@ -467,7 +457,14 @@
             <span id="productoBadgeOferta" class="badge-oferta" hidden>Oferta</span>
             <img id="productoImagen" src="" alt="">
           </div>
+
           <div id="productoMiniaturas" class="product-thumbs" hidden></div>
+
+          <!-- Selector de color debajo de la fotografía -->
+          <div class="product-selector" id="grupoColores" hidden>
+            <h2 class="selector-label">Color</h2>
+            <div id="productoColores" class="chip-group"></div>
+          </div>
         </div>
 
         <div class="product-hero-info">
@@ -480,12 +477,6 @@
           </div>
 
           <p id="productoDescripcionCorta" class="product-lead"></p>
-
-          <!-- Selector de color -->
-          <div class="product-selector" id="grupoColores" hidden>
-            <h2 class="selector-label">Color</h2>
-            <div id="productoColores" class="chip-group"></div>
-          </div>
 
           <!-- Selector de talla -->
           <div class="product-selector" id="grupoTallas" hidden>
@@ -523,9 +514,8 @@
 
       <!-- ===================== DESCRIPCIÓN DETALLADA ===================== -->
       <section class="product-description-section" id="descripcionSection" hidden>
-        
+
         <div class="description-grid">
-         
 
           <dl class="specs-list">
             <div><dt>SKU</dt><dd id="specSku"></dd></div>
@@ -960,10 +950,9 @@
           cont.innerHTML = "";
           cont.appendChild(window.Favoritos.crearBoton(producto.id, true));
         }
+
         document.getElementById("productoPrecio").textContent = formatearPrecio(precio);
         document.getElementById("productoDescripcionCorta").textContent = descripcion;
-
-        
 
         const precioAnteriorEl = document.getElementById("productoPrecioAnterior");
         const badgeOferta = document.getElementById("productoBadgeOferta");

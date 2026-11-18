@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Finaliza tu compra en Moda Fashion.">
   <title>Finalizar compra | Moda Fashion</title>
-
-  <!-- Estilos propios de la página de compra -->
   <link rel="stylesheet" href="checkout.css">
 </head>
 
@@ -52,9 +50,7 @@
               </div>
             </div>
 
-            <div id="checkoutProducts">
-              <!-- Los productos se cargarán desde el carrito -->
-            </div>
+            <div id="checkoutProducts"></div>
 
             <div id="emptyCart" hidden>
               Tu carrito está vacío.
@@ -99,19 +95,17 @@
                 >
               </div>
 
-              
-<div class="form-group">
-  <label for="correo">Correo electrónico</label>
-  <input
-    type="email"
-    id="correo"
-    name="correo"
-    placeholder="correo@ejemplo.com"
-    autocomplete="email"
-    required
-  >
-</div>
-
+              <div class="form-group">
+                <label for="correo">Correo electrónico</label>
+                <input
+                  type="email"
+                  id="correo"
+                  name="correo"
+                  placeholder="correo@ejemplo.com"
+                  autocomplete="email"
+                  required
+                >
+              </div>
 
             </div>
           </section>
@@ -248,6 +242,9 @@
 
             </div>
 
+            <!-- UBICACIÓN DEL PANEL EN TELÉFONOS -->
+            <div id="paymentDetailsMobileSlot"></div>
+
             <!-- COMPROBANTE -->
             <div class="form-group receipt-group">
               <label for="comprobante">Comprobante de pago</label>
@@ -256,7 +253,7 @@
                 id="comprobante"
                 name="comprobante"
                 accept="image/*,.pdf"
-                 required
+                required
               >
               <small>Podrás adjuntar una imagen o PDF de tu comprobante.</small>
             </div>
@@ -301,14 +298,18 @@
 
           </section>
 
-          <!-- INSTRUCCIONES DEL MÉTODO DE PAGO -->
-          <section
-            id="paymentDetails"
-            class="checkout-card payment-details"
-            hidden
-          >
-            <!-- Aquí aparecerán los datos según el medio de pago -->
-          </section>
+          <!-- UBICACIÓN DEL PANEL EN PC -->
+          <div id="paymentDetailsDesktopSlot">
+
+            <section
+              id="paymentDetails"
+              class="checkout-card payment-details"
+              hidden
+            >
+              <!-- Aquí aparecerán los datos según el medio de pago -->
+            </section>
+
+          </div>
 
         </aside>
 
@@ -322,11 +323,8 @@
     <p>© 2026 Moda Fashion. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Sistema general e inventario -->
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>
+  <script src="checkout.js"></script>
 
-<!-- JavaScript de la página de compra -->
-<script src="checkout.js"></script>
 </body>
 </html>
-```

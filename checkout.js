@@ -390,6 +390,7 @@ contenedor.appendChild(articulo);
     }
   }
 
+  
   // ==========================================
   // CONFIGURAR MÉTODOS DE PAGO
   // ==========================================
@@ -400,69 +401,101 @@ contenedor.appendChild(articulo);
     );
 
     const detalles = document.getElementById("paymentDetails");
+    const espacioMovil = document.getElementById("paymentDetailsMobileSlot");
+    const espacioPC = document.getElementById("paymentDetailsDesktopSlot");
 
-    if (!detalles || opciones.length === 0) return;
+    if (!detalles || !espacioMovil || !espacioPC || opciones.length === 0) {
+      return;
+    }
 
-    
-const informacionPagos = {
-  yape: `
-    <div class="payment-brand payment-brand-yape">
-      <img src="img/pagos/yape-log.jpg" alt="Yape">
-    </div>
-    <div class="payment-panel-content">
-      <h2>Pago mediante Yape</h2>
-      <p>Escanea nuestro código QR desde tu aplicación Yape.</p>
-     <div class="payment-image payment-image-yape">
-       <img src="img/pagos/qr-yape.jpg" alt="Código QR de Yape">
-      </div>
-      <div class="payment-reminder">
-        <strong>ⓘ Información importante</strong>
-        <p>Luego de realizar el pago, adjunta tu comprobante en la sección correspondiente.</p>
-      </div>
-    </div>
-  `,
+    // ==========================================
+    // MOVER EL PANEL SEGÚN LA PANTALLA
+    // ==========================================
 
-  plin: `
-    <div class="payment-brand payment-brand-plin">
-      <img src="img/pagos/plim-log.jpg" alt="Plin">
-    </div>
-    <div class="payment-panel-content">
-      <h2>Pago mediante Plin</h2>
-      <p>Escanea nuestro código QR desde tu aplicación Plin.</p>
-     <div class="payment-image payment-image-plin">
-        <img src="img/pagos/qr-plin.jpg" alt="Código QR de Plin">
-      </div>
-      <div class="payment-reminder">
-        <strong>ⓘ Información importante</strong>
-        <p>Luego de realizar el pago, adjunta tu comprobante en la sección correspondiente.</p>
-      </div>
-    </div>
-  `,
+    const pantallaMovil = window.matchMedia("(max-width: 600px)");
 
-visa: `
-  <div class="payment-brand payment-brand-visa">
-    <span class="visa-wordmark">VISA</span>
-  </div>
+    function actualizarUbicacionPanel() {
+      if (pantallaMovil.matches) {
+        espacioMovil.appendChild(detalles);
+      } else {
+        espacioPC.appendChild(detalles);
+      }
+    }
 
-  <div class="payment-panel-content">
-    <h2>Pago con tarjeta Visa</h2>
-    <p>
-      Próximamente podrás pagar tus compras con tarjetas
-      Visa de débito o crédito.
-    </p>
+    actualizarUbicacionPanel();
 
-    <div class="payment-coming-soon">
-      <strong>Pago con tarjeta próximamente</strong>
-      <p>
-        Estamos preparando una integración segura
-        para que puedas realizar tus pagos directamente
-        desde nuestra tienda.
-      </p>
-    </div>
-  </div>
-`,
+    if (pantallaMovil.addEventListener) {
+      pantallaMovil.addEventListener("change", actualizarUbicacionPanel);
+    } else {
+      pantallaMovil.addListener(actualizarUbicacionPanel);
+    }
 
-};
+    // ==========================================
+    // INFORMACIÓN DE LOS MÉTODOS DE PAGO
+    // ==========================================
+
+    const informacionPagos = {
+      yape: `
+        <div class="payment-brand payment-brand-yape">
+          <img src="img/pagos/yape-log.jpg" alt="Yape">
+        </div>
+        <div class="payment-panel-content">
+          <h2>Pago mediante Yape</h2>
+          <p>Escanea nuestro código QR desde tu aplicación Yape.</p>
+          <div class="payment-image payment-image-yape">
+            <img src="img/pagos/qr-yape.jpg" alt="Código QR de Yape">
+          </div>
+          <div class="payment-reminder">
+            <strong>ⓘ Información importante</strong>
+            <p>Luego de realizar el pago, adjunta tu comprobante en la sección correspondiente.</p>
+          </div>
+        </div>
+      `,
+
+      plin: `
+        <div class="payment-brand payment-brand-plin">
+          <img src="img/pagos/plim-log.jpg" alt="Plin">
+        </div>
+        <div class="payment-panel-content">
+          <h2>Pago mediante Plin</h2>
+          <p>Escanea nuestro código QR desde tu aplicación Plin.</p>
+          <div class="payment-image payment-image-plin">
+            <img src="img/pagos/qr-plin.jpg" alt="Código QR de Plin">
+          </div>
+          <div class="payment-reminder">
+            <strong>ⓘ Información importante</strong>
+            <p>Luego de realizar el pago, adjunta tu comprobante en la sección correspondiente.</p>
+          </div>
+        </div>
+      `,
+
+      Visa: `
+        <div class="payment-brand payment-brand-visa">
+          <span class="visa-wordmark">VISA</span>
+        </div>
+
+        <div class="payment-panel-content">
+          <h2>Pago con tarjeta Visa</h2>
+          <p>
+            Próximamente podrás pagar tus compras con tarjetas
+            Visa de débito o crédito.
+          </p>
+
+          <div class="payment-coming-soon">
+            <strong>Pago con tarjeta próximamente</strong>
+            <p>
+              Estamos preparando una integración segura
+              para que puedas realizar tus pagos directamente
+              desde nuestra tienda.
+            </p>
+          </div>
+        </div>
+      `
+    };
+
+    // ==========================================
+    // MOSTRAR EL MÉTODO DE PAGO SELECCIONADO
+    // ==========================================
 
     opciones.forEach((opcion) => {
       opcion.addEventListener("change", () => {
@@ -481,19 +514,21 @@ visa: `
       });
     });
 
-    // Mostrar el panel si ya existe un método seleccionado.
+    // Mostrar el método seleccionado inicialmente.
     const metodoInicial = document.querySelector(
       'input[name="metodoPago"]:checked'
     );
 
     if (metodoInicial) {
-      metodoInicial.dispatchEvent(new Event("change", { bubbles: true }));
+      metodoInicial.dispatchEvent(
+        new Event("change", { bubbles: true })
+      );
     } else {
       detalles.hidden = true;
       detalles.innerHTML = "";
     }
   }
-  
+
   // ==========================================
   // GUARDAR COMPROBANTE EN INDEXEDDB
   // ==========================================

@@ -1260,3 +1260,81 @@ body {
   }
 
 }
+
+/* =========================================================
+   FOOTER - DISEÑO RESPONSIVE MODA&FASHION
+   ========================================================= */
+
+.site-footer .footer-content {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.site-footer .footer-col {
+  min-width: 0;
+}
+
+.site-footer .logo-img-footer {
+  display: block;
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+}
+
+.site-footer .footer-text {
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+.site-footer .footer-heading {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.site-footer .footer-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer .footer-links li {
+  margin-bottom: 0.7rem;
+}
+
+.site-footer .footer-bottom {
+  text-align: center;
+}
+
+/* TELÉFONOS */
+@media (max-width: 699px) {
+  .site-footer .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  .site-footer .footer-col {
+    width: 100%;
+  }
+
+  .site-footer .logo-img-footer {
+    max-width: 190px;
+  }
+
+  .site-footer .footer-text {
+    margin-top: 0.7rem;
+  }
+
+  .site-footer .footer-heading {
+    margin-bottom: 0.7rem;
+  }
+
+  .site-footer .footer-links li {
+    margin-bottom: 0.6rem;
+  }
+
+  .site-footer .footer-bottom {
+    margin-top: 1.5rem;
+  }
+}

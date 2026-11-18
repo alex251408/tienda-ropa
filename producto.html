@@ -469,9 +469,9 @@
 
       <!-- ===================== DESCRIPCIÓN DETALLADA ===================== -->
       <section class="product-description-section" id="descripcionSection" hidden>
-        <h2 class="section-title">Descripción del producto</h2>
+        
         <div class="description-grid">
-          <p id="productoDescripcionLarga" class="description-text"></p>
+         
 
           <dl class="specs-list">
             <div><dt>SKU</dt><dd id="specSku"></dd></div>
@@ -909,8 +909,7 @@
         document.getElementById("productoPrecio").textContent = formatearPrecio(precio);
         document.getElementById("productoDescripcionCorta").textContent = descripcion;
 
-        document.getElementById("productoDescripcionLarga").textContent =
-          descripcion || "Este producto todavía no tiene una descripción detallada.";
+        
 
         const precioAnteriorEl = document.getElementById("productoPrecioAnterior");
         const badgeOferta = document.getElementById("productoBadgeOferta");

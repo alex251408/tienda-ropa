@@ -183,13 +183,13 @@
   }
 
   #mf-chat-window {
-    right: 12px;
-    bottom: 88px;
-    width: min(340px, calc(100vw - 24px));
-    height: min(460px, calc(100dvh - 130px));
-    max-height: calc(100dvh - 130px);
-    border-radius: 13px;
-  }
+  right: 12px;
+  bottom: 88px;
+  width: min(340px, calc(100vw - 24px));
+  height: min(390px, calc(100dvh - 130px));
+  max-height: calc(100dvh - 130px);
+  border-radius: 13px;
+}
 
   /* Encabezado más compacto */
   .mf-chat-header {

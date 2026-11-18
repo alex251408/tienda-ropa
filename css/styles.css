@@ -1392,6 +1392,13 @@ body {
   padding-top: 0.35rem;
 }
 
+.hero-content .btn {
+  align-self: start;
+  margin-top: 1.5rem;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.76rem;
+}
+
 /* Reducir ligeramente el botón en computadora */
 .hero-content .btn {
   padding: 0.7rem 1.25rem;

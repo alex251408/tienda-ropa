@@ -239,17 +239,18 @@ document.addEventListener("DOMContentLoaded", function () {
     // Mostrar bienvenida solamente la primera vez
     if (!chatMessages.dataset.initialized) {
 
-      mfAddMessage(
-        "¡Hola! 👋 Bienvenido a Moda&Fashion. Estamos aquí para ayudarte. ¿Qué información necesitas?"
-      );
+  mfAddMessage(
+    "¡Hola! 👋 Bienvenido a Moda&Fashion. Estamos aquí para ayudarte. ¿Qué información necesitas?"
+  );
 
-      chatMessages.dataset.initialized = "true";
+  chatMessages.dataset.initialized = "true";
 
-      mfShowOptions();
+  mfShowOptions();
 
-    }
+  // Mostrar el saludo y todas las opciones desde el principio
+  chatMessages.scrollTop = 0;
 
-  });
+}
 
   // ==========================================
   // CERRAR CHAT

@@ -224,6 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
+ 
   // ==========================================
   // ABRIR CHAT DESDE EL BOTÓN ORIGINAL
   // ==========================================
@@ -232,6 +233,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Evitar que abra directamente WhatsApp
     event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
 
     // Abrir ventana emergente
     chatWindow.classList.add("mf-chat-open");
@@ -239,18 +242,21 @@ document.addEventListener("DOMContentLoaded", function () {
     // Mostrar bienvenida solamente la primera vez
     if (!chatMessages.dataset.initialized) {
 
-  mfAddMessage(
-    "¡Hola! 👋 Bienvenido a Moda&Fashion. Estamos aquí para ayudarte. ¿Qué información necesitas?"
-  );
+      mfAddMessage(
+        "¡Hola! 👋 Bienvenido a Moda&Fashion. Estamos aquí para ayudarte. ¿Qué información necesitas?"
+      );
 
-  chatMessages.dataset.initialized = "true";
+      chatMessages.dataset.initialized = "true";
 
-  mfShowOptions();
+      mfShowOptions();
 
-  // Mostrar el saludo y todas las opciones desde el principio
-  chatMessages.scrollTop = 0;
+      // Comenzar mostrando el saludo y las opciones desde arriba
+      chatMessages.scrollTop = 0;
 
-}
+    }
+
+  }, true);
+
 
   // ==========================================
   // CERRAR CHAT
